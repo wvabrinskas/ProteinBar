@@ -6,7 +6,7 @@
 //  Created by William Vabrinskas on 4/16/25.
 //
 
-enum SharedStorageKeys: String, StorageKeying {
+public enum SharedStorageKeys: String, StorageKeying {
   case trackingValues
   
   public func defaultValue<T: Eraseable>() -> T? {

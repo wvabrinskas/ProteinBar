@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/wvabrinskas/HuddleArch",
       "state" : {
-        "revision" : "8db2319c4a691807760b5365691b3169f96851f2",
-        "version" : "1.0.19"
+        "revision" : "3629702493d93494f787c6cf9cde44e5406b7369",
+        "version" : "1.0.21"
       }
     },
     {
