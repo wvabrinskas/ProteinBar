@@ -1,0 +1,24 @@
+{
+  "originHash" : "e8f7e9b1ba8f5bf37c79742df84c150f348f928af0cd97c1ea6f3008ab12572d",
+  "pins" : [
+    {
+      "identity" : "huddlearch",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wvabrinskas/HuddleArch",
+      "state" : {
+        "revision" : "8db2319c4a691807760b5365691b3169f96851f2",
+        "version" : "1.0.19"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "state" : {
+        "revision" : "0687f71944021d616d34d922343dcef086855920",
+        "version" : "600.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -1,0 +1,634 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9143497C2DB04DAC00B1BA76 /* HuddleArch in Frameworks */ = {isa = PBXBuildFile; productRef = 9143497B2DB04DAC00B1BA76 /* HuddleArch */; };
+		9143497E2DB04DAC00B1BA76 /* HuddleMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 9143497D2DB04DAC00B1BA76 /* HuddleMacros */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9143495E2DB04D8F00B1BA76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 914349472DB04D8E00B1BA76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9143494E2DB04D8E00B1BA76;
+			remoteInfo = ProteinBar;
+		};
+		914349682DB04D8F00B1BA76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 914349472DB04D8E00B1BA76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9143494E2DB04D8E00B1BA76;
+			remoteInfo = ProteinBar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9143494F2DB04D8E00B1BA76 /* ProteinBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProteinBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9143495D2DB04D8F00B1BA76 /* ProteinBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProteinBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		914349672DB04D8F00B1BA76 /* ProteinBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProteinBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		914349512DB04D8E00B1BA76 /* ProteinBar */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ProteinBar;
+			sourceTree = "<group>";
+		};
+		914349602DB04D8F00B1BA76 /* ProteinBarTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ProteinBarTests;
+			sourceTree = "<group>";
+		};
+		9143496A2DB04D8F00B1BA76 /* ProteinBarUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ProteinBarUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9143494C2DB04D8E00B1BA76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9143497C2DB04DAC00B1BA76 /* HuddleArch in Frameworks */,
+				9143497E2DB04DAC00B1BA76 /* HuddleMacros in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9143495A2DB04D8F00B1BA76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		914349642DB04D8F00B1BA76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		914349462DB04D8E00B1BA76 = {
+			isa = PBXGroup;
+			children = (
+				914349512DB04D8E00B1BA76 /* ProteinBar */,
+				914349602DB04D8F00B1BA76 /* ProteinBarTests */,
+				9143496A2DB04D8F00B1BA76 /* ProteinBarUITests */,
+				914349502DB04D8E00B1BA76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		914349502DB04D8E00B1BA76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9143494F2DB04D8E00B1BA76 /* ProteinBar.app */,
+				9143495D2DB04D8F00B1BA76 /* ProteinBarTests.xctest */,
+				914349672DB04D8F00B1BA76 /* ProteinBarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9143494E2DB04D8E00B1BA76 /* ProteinBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 914349712DB04D8F00B1BA76 /* Build configuration list for PBXNativeTarget "ProteinBar" */;
+			buildPhases = (
+				9143494B2DB04D8E00B1BA76 /* Sources */,
+				9143494C2DB04D8E00B1BA76 /* Frameworks */,
+				9143494D2DB04D8E00B1BA76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				914349512DB04D8E00B1BA76 /* ProteinBar */,
+			);
+			name = ProteinBar;
+			packageProductDependencies = (
+				9143497B2DB04DAC00B1BA76 /* HuddleArch */,
+				9143497D2DB04DAC00B1BA76 /* HuddleMacros */,
+			);
+			productName = ProteinBar;
+			productReference = 9143494F2DB04D8E00B1BA76 /* ProteinBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9143495C2DB04D8F00B1BA76 /* ProteinBarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 914349742DB04D8F00B1BA76 /* Build configuration list for PBXNativeTarget "ProteinBarTests" */;
+			buildPhases = (
+				914349592DB04D8F00B1BA76 /* Sources */,
+				9143495A2DB04D8F00B1BA76 /* Frameworks */,
+				9143495B2DB04D8F00B1BA76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9143495F2DB04D8F00B1BA76 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				914349602DB04D8F00B1BA76 /* ProteinBarTests */,
+			);
+			name = ProteinBarTests;
+			packageProductDependencies = (
+			);
+			productName = ProteinBarTests;
+			productReference = 9143495D2DB04D8F00B1BA76 /* ProteinBarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		914349662DB04D8F00B1BA76 /* ProteinBarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 914349772DB04D8F00B1BA76 /* Build configuration list for PBXNativeTarget "ProteinBarUITests" */;
+			buildPhases = (
+				914349632DB04D8F00B1BA76 /* Sources */,
+				914349642DB04D8F00B1BA76 /* Frameworks */,
+				914349652DB04D8F00B1BA76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				914349692DB04D8F00B1BA76 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9143496A2DB04D8F00B1BA76 /* ProteinBarUITests */,
+			);
+			name = ProteinBarUITests;
+			packageProductDependencies = (
+			);
+			productName = ProteinBarUITests;
+			productReference = 914349672DB04D8F00B1BA76 /* ProteinBarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		914349472DB04D8E00B1BA76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					9143494E2DB04D8E00B1BA76 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					9143495C2DB04D8F00B1BA76 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 9143494E2DB04D8E00B1BA76;
+					};
+					914349662DB04D8F00B1BA76 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 9143494E2DB04D8E00B1BA76;
+					};
+				};
+			};
+			buildConfigurationList = 9143494A2DB04D8E00B1BA76 /* Build configuration list for PBXProject "ProteinBar" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 914349462DB04D8E00B1BA76;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9143497A2DB04DAC00B1BA76 /* XCRemoteSwiftPackageReference "HuddleArch" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 914349502DB04D8E00B1BA76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9143494E2DB04D8E00B1BA76 /* ProteinBar */,
+				9143495C2DB04D8F00B1BA76 /* ProteinBarTests */,
+				914349662DB04D8F00B1BA76 /* ProteinBarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9143494D2DB04D8E00B1BA76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9143495B2DB04D8F00B1BA76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		914349652DB04D8F00B1BA76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9143494B2DB04D8E00B1BA76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		914349592DB04D8F00B1BA76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		914349632DB04D8F00B1BA76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9143495F2DB04D8F00B1BA76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9143494E2DB04D8E00B1BA76 /* ProteinBar */;
+			targetProxy = 9143495E2DB04D8F00B1BA76 /* PBXContainerItemProxy */;
+		};
+		914349692DB04D8F00B1BA76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9143494E2DB04D8E00B1BA76 /* ProteinBar */;
+			targetProxy = 914349682DB04D8F00B1BA76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9143496F2DB04D8F00B1BA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		914349702DB04D8F00B1BA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		914349722DB04D8F00B1BA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ProteinBar/ProteinBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.ProteinBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Debug;
+		};
+		914349732DB04D8F00B1BA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ProteinBar/ProteinBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.ProteinBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Release;
+		};
+		914349752DB04D8F00B1BA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.ProteinBarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProteinBar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProteinBar";
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Debug;
+		};
+		914349762DB04D8F00B1BA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.ProteinBarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProteinBar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProteinBar";
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Release;
+		};
+		914349782DB04D8F00B1BA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.ProteinBarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = ProteinBar;
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Debug;
+		};
+		914349792DB04D8F00B1BA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.ProteinBarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = ProteinBar;
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9143494A2DB04D8E00B1BA76 /* Build configuration list for PBXProject "ProteinBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9143496F2DB04D8F00B1BA76 /* Debug */,
+				914349702DB04D8F00B1BA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		914349712DB04D8F00B1BA76 /* Build configuration list for PBXNativeTarget "ProteinBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				914349722DB04D8F00B1BA76 /* Debug */,
+				914349732DB04D8F00B1BA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		914349742DB04D8F00B1BA76 /* Build configuration list for PBXNativeTarget "ProteinBarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				914349752DB04D8F00B1BA76 /* Debug */,
+				914349762DB04D8F00B1BA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		914349772DB04D8F00B1BA76 /* Build configuration list for PBXNativeTarget "ProteinBarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				914349782DB04D8F00B1BA76 /* Debug */,
+				914349792DB04D8F00B1BA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9143497A2DB04DAC00B1BA76 /* XCRemoteSwiftPackageReference "HuddleArch" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wvabrinskas/HuddleArch";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.19;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9143497B2DB04DAC00B1BA76 /* HuddleArch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9143497A2DB04DAC00B1BA76 /* XCRemoteSwiftPackageReference "HuddleArch" */;
+			productName = HuddleArch;
+		};
+		9143497D2DB04DAC00B1BA76 /* HuddleMacros */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9143497A2DB04DAC00B1BA76 /* XCRemoteSwiftPackageReference "HuddleArch" */;
+			productName = HuddleMacros;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 914349472DB04D8E00B1BA76 /* Project object */;
+}
