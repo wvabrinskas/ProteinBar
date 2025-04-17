@@ -13,6 +13,8 @@ import HuddleMacros
 
 public protocol RootSupporting {
   var viewModel: RootViewModel { get }
+  @MainActor
+  func routeToRootView() -> any View
 }
 
 public protocol RootComponent: Component {
@@ -41,6 +43,7 @@ public class RootModuleHolder: ModuleHolder, RootSupporting, Module, @unchecked 
   private let component: RootComponent
   private let context: RootModuleHolderContext
 
+  @MainActor
   public required init(holder: ModuleHolding? = nil,
                        context: RootModuleHolderContext,
                        component: RootModuleComponentImpl) {
@@ -50,12 +53,16 @@ public class RootModuleHolder: ModuleHolder, RootSupporting, Module, @unchecked 
     super.init(holder: holder)
 
     supportedModules = [
-      // add supported modules here
+      BarBuilder.build(parentComponent: component, holder: self, context: context)
     ]
   }
   
   public func onActive() {
     // no op
   }
-  
+
+  @MainActor
+  public func routeToRootView() -> any View {
+    router?.rootView() ?? EmptyView()
+  }
 }

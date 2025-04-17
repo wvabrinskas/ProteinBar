@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9143497C2DB04DAC00B1BA76 /* HuddleArch in Frameworks */ = {isa = PBXBuildFile; productRef = 9143497B2DB04DAC00B1BA76 /* HuddleArch */; };
-		9143497E2DB04DAC00B1BA76 /* HuddleMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 9143497D2DB04DAC00B1BA76 /* HuddleMacros */; };
+		91A6D3272DB1C91900BFBF88 /* HuddleArch in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D3262DB1C91900BFBF88 /* HuddleArch */; };
+		91A6D3292DB1C91900BFBF88 /* HuddleMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D3282DB1C91900BFBF88 /* HuddleMacros */; };
+		91A6D32C2DB1C9E300BFBF88 /* HuddleArch in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D32B2DB1C9E300BFBF88 /* HuddleArch */; };
+		91A6D32E2DB1C9E300BFBF88 /* HuddleMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D32D2DB1C9E300BFBF88 /* HuddleMacros */; };
+		91E5FD132DB07E1C00272372 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 91E5FD122DB07E1C00272372 /* Logger */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +60,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9143497C2DB04DAC00B1BA76 /* HuddleArch in Frameworks */,
-				9143497E2DB04DAC00B1BA76 /* HuddleMacros in Frameworks */,
+				91A6D3292DB1C91900BFBF88 /* HuddleMacros in Frameworks */,
+				91A6D32E2DB1C9E300BFBF88 /* HuddleMacros in Frameworks */,
+				91A6D3272DB1C91900BFBF88 /* HuddleArch in Frameworks */,
+				91A6D32C2DB1C9E300BFBF88 /* HuddleArch in Frameworks */,
+				91E5FD132DB07E1C00272372 /* Logger in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +125,11 @@
 			);
 			name = ProteinBar;
 			packageProductDependencies = (
-				9143497B2DB04DAC00B1BA76 /* HuddleArch */,
-				9143497D2DB04DAC00B1BA76 /* HuddleMacros */,
+				91E5FD122DB07E1C00272372 /* Logger */,
+				91A6D3262DB1C91900BFBF88 /* HuddleArch */,
+				91A6D3282DB1C91900BFBF88 /* HuddleMacros */,
+				91A6D32B2DB1C9E300BFBF88 /* HuddleArch */,
+				91A6D32D2DB1C9E300BFBF88 /* HuddleMacros */,
 			);
 			productName = ProteinBar;
 			productReference = 9143494F2DB04D8E00B1BA76 /* ProteinBar.app */;
@@ -205,7 +214,8 @@
 			mainGroup = 914349462DB04D8E00B1BA76;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				9143497A2DB04DAC00B1BA76 /* XCRemoteSwiftPackageReference "HuddleArch" */,
+				91E5FD112DB07E1C00272372 /* XCRemoteSwiftPackageReference "Logger" */,
+				91A6D32A2DB1C9E300BFBF88 /* XCRemoteSwiftPackageReference "HuddleArch" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 914349502DB04D8E00B1BA76 /* Products */;
@@ -607,26 +617,47 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9143497A2DB04DAC00B1BA76 /* XCRemoteSwiftPackageReference "HuddleArch" */ = {
+		91A6D32A2DB1C9E300BFBF88 /* XCRemoteSwiftPackageReference "HuddleArch" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wvabrinskas/HuddleArch";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.19;
+				minimumVersion = 1.0.23;
+			};
+		};
+		91E5FD112DB07E1C00272372 /* XCRemoteSwiftPackageReference "Logger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wvabrinskas/Logger.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.7;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9143497B2DB04DAC00B1BA76 /* HuddleArch */ = {
+		91A6D3262DB1C91900BFBF88 /* HuddleArch */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9143497A2DB04DAC00B1BA76 /* XCRemoteSwiftPackageReference "HuddleArch" */;
 			productName = HuddleArch;
 		};
-		9143497D2DB04DAC00B1BA76 /* HuddleMacros */ = {
+		91A6D3282DB1C91900BFBF88 /* HuddleMacros */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9143497A2DB04DAC00B1BA76 /* XCRemoteSwiftPackageReference "HuddleArch" */;
 			productName = HuddleMacros;
+		};
+		91A6D32B2DB1C9E300BFBF88 /* HuddleArch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A6D32A2DB1C9E300BFBF88 /* XCRemoteSwiftPackageReference "HuddleArch" */;
+			productName = HuddleArch;
+		};
+		91A6D32D2DB1C9E300BFBF88 /* HuddleMacros */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A6D32A2DB1C9E300BFBF88 /* XCRemoteSwiftPackageReference "HuddleArch" */;
+			productName = HuddleMacros;
+		};
+		91E5FD122DB07E1C00272372 /* Logger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91E5FD112DB07E1C00272372 /* XCRemoteSwiftPackageReference "Logger" */;
+			productName = Logger;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

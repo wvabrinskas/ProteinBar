@@ -1,6 +1,6 @@
 //
 //  
-//  RootViewModel.swift
+//  BarViewModel.swift
 //  ProteinBar
 //
 //  Created by William Vabrinskas on 4/16/25.
@@ -12,5 +12,6 @@ import SwiftUI
 import HuddleArch
 
 @Observable
-public final class RootViewModel {
+public final class BarViewModel {
+
 }

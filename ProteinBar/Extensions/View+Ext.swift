@@ -146,11 +146,11 @@ struct AppBackground: View {
   
   public var body: some View {
     if gradient {
-      LinearGradient(colors: [theme.primaryColor,
-                              theme.secondaryColor], startPoint: .top,
+      LinearGradient(colors: [theme.backgroundColorTop,
+                              theme.backgroundColorBottom], startPoint: .top,
                      endPoint: .bottom)
     } else {
-      theme.backgroundColor
+      theme.backgroundColorTop
     }
   }
 }

@@ -14,7 +14,8 @@ public enum Colors {
   case secondaryAppColor
   case primaryTextColor
   case secondaryTextColor
-  case backgroundColor
+  case backgroundColorTop
+  case backgroundColorBottom
   
   var name: String {
     switch self {
@@ -26,8 +27,11 @@ public enum Colors {
       return "PrimaryTextColor"
     case .secondaryTextColor:
       return "SecondaryTextColor"
-    case .backgroundColor:
-      return "BackgroundColor"
+    case .backgroundColorTop:
+      return "BackgroundColorTop"
+    case .backgroundColorBottom:
+      return "BackgroundColorBottom"
+
     }
   }
 }
@@ -37,7 +41,8 @@ public protocol Theme {
   var secondaryColor: Color { get }
   var primaryTextColor: Color { get }
   var secondaryTextColor: Color { get }
-  var backgroundColor: Color { get }
+  var backgroundColorTop: Color { get }
+  var backgroundColorBottom: Color { get }
 }
 
 public extension Color {
@@ -51,5 +56,6 @@ struct LaunchTheme: Theme, Sendable {
   var secondaryColor: Color { .app(.secondaryAppColor) }
   var primaryTextColor: Color { .app(.primaryTextColor) }
   var secondaryTextColor: Color { .app(.secondaryTextColor) }
-  var backgroundColor: Color { .app(.backgroundColor) }
+  var backgroundColorTop: Color { .app(.backgroundColorTop) }
+  var backgroundColorBottom: Color { .app(.backgroundColorBottom) }
 }

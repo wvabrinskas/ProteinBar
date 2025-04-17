@@ -19,19 +19,11 @@ public enum SharedStorageKeys: String, StorageKeying {
 
 
 struct TrackingValues: Codable {
-  var maxProtein: Int
-  var maxWater: Int
-  var currentProtein: Int
-  var currentWater: Int
-  
-  init(maxProtein: Int = 100,
-       maxWater: Int = 100,
-       currentProtein: Int = 0,
-       currentWater: Int = 0) {
-    self.maxProtein = maxProtein
-    self.maxWater = maxWater
-    self.currentProtein = currentProtein
-    self.currentWater = currentWater
-  }
+  var values: [TrackingValue] = []
 }
 
+struct TrackingValue: Codable {
+  var name: String
+  var value: Int
+  var maxValue: Int
+}

@@ -1,13 +1,22 @@
 {
-  "originHash" : "e8f7e9b1ba8f5bf37c79742df84c150f348f928af0cd97c1ea6f3008ab12572d",
+  "originHash" : "58e6f9616b32d4032524218bf06d50d8e9addea1d8667d5a8b0b2b0089fbe656",
   "pins" : [
     {
       "identity" : "huddlearch",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/wvabrinskas/HuddleArch",
       "state" : {
-        "revision" : "3629702493d93494f787c6cf9cde44e5406b7369",
-        "version" : "1.0.21"
+        "revision" : "9bde6974c14a609d45870c33de905cfa54121eef",
+        "version" : "1.0.23"
+      }
+    },
+    {
+      "identity" : "logger",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wvabrinskas/Logger.git",
+      "state" : {
+        "revision" : "72e4516de6c671d00588031098438a933ee0d370",
+        "version" : "1.0.7"
       }
     },
     {

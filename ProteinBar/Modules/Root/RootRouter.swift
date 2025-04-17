@@ -22,6 +22,7 @@ public struct RootViewComponentImpl: RootViewComponent {
 
 @MainActor
 public protocol RootRouting: Router {
+  func routeToBarView() -> any View
 }
 
 @MainActor
@@ -40,5 +41,13 @@ public final class RootRouter: Router, RootRouting {
     return RootView(module: module,
                     router: self,
                     viewModel: module.viewModel)
+  }
+  
+  public func routeToBarView() -> any View {
+    guard let barRouter: BarRouting = moduleHolder?.router(for: BarSupporting.self) else {
+      fatalError("Could not find bar router")
+    }
+    
+    return barRouter.rootView()
   }
 }

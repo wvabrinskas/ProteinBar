@@ -17,7 +17,8 @@ struct RootView: View {
   @State var viewModel: RootViewModel
 
   var body: some View {
-    Text("")
+    router.routeToBarView()
+    .asAnyView()
   }
 }
 

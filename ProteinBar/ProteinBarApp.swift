@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct ProteinBarApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  @Environment(\.rootModule) var rootModule
+  
+  var body: some Scene {
+    WindowGroup {
+      rootModule
+        .routeToRootView()
+        .asAnyView()
     }
+  }
 }
