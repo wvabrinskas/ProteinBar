@@ -34,13 +34,13 @@ public struct BarView: View {
         .align(.leading)
         .padding(.leading, 16)
         
-        ProteinBarButton(viewModel: .circle(image: Image(systemName: "pencil"),
-                                            size: 28,
-                                            buttonSize: 38,
+        ProteinBarButton(viewModel: .circle(image: Image(systemName: "gearshape.fill"),
+                                            size: 32,
+                                            buttonSize: 32,
                                             backgroundColor: .clear,
                                             foregroundColor: theme.primaryTextColor,
                                             enabled: true)) {
-          viewModel.editing.toggle()
+          viewModel.settings.toggle()
         }
         .align(.trailing)
         .padding(.trailing, 16)
@@ -62,9 +62,7 @@ public struct BarView: View {
                                           range: 0...value.maxValue,
                                           barColor: value.name.barColor(theme: theme),
                                           leadingIcon: value.name.icon,
-                                          id: value.name.rawValue)) { id in
-                remove(id: id)
-            }
+                                          id: value.name.rawValue))
           }
         }
         .padding()
@@ -87,6 +85,9 @@ public struct BarView: View {
         viewModel.reset.toggle()
       }))
     ]))
+    .sheet(isPresented: $viewModel.settings) {
+      router.routeToSettingsView().asAnyView()
+    }
     .fullscreen()
     .applyThemeBackground(gradient: false)
   }

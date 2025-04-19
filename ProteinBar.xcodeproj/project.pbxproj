@@ -11,6 +11,7 @@
 		91A6D3292DB1C91900BFBF88 /* HuddleMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D3282DB1C91900BFBF88 /* HuddleMacros */; };
 		91A6D32C2DB1C9E300BFBF88 /* HuddleArch in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D32B2DB1C9E300BFBF88 /* HuddleArch */; };
 		91A6D32E2DB1C9E300BFBF88 /* HuddleMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D32D2DB1C9E300BFBF88 /* HuddleMacros */; };
+		91A6D3DD2DB3553200BFBF88 /* NumSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D3DC2DB3553200BFBF88 /* NumSwift */; };
 		91E5FD132DB07E1C00272372 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 91E5FD122DB07E1C00272372 /* Logger */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 				91A6D3272DB1C91900BFBF88 /* HuddleArch in Frameworks */,
 				91A6D32C2DB1C9E300BFBF88 /* HuddleArch in Frameworks */,
 				91E5FD132DB07E1C00272372 /* Logger in Frameworks */,
+				91A6D3DD2DB3553200BFBF88 /* NumSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +132,7 @@
 				91A6D3282DB1C91900BFBF88 /* HuddleMacros */,
 				91A6D32B2DB1C9E300BFBF88 /* HuddleArch */,
 				91A6D32D2DB1C9E300BFBF88 /* HuddleMacros */,
+				91A6D3DC2DB3553200BFBF88 /* NumSwift */,
 			);
 			productName = ProteinBar;
 			productReference = 9143494F2DB04D8E00B1BA76 /* ProteinBar.app */;
@@ -216,6 +219,7 @@
 			packageReferences = (
 				91E5FD112DB07E1C00272372 /* XCRemoteSwiftPackageReference "Logger" */,
 				91A6D32A2DB1C9E300BFBF88 /* XCRemoteSwiftPackageReference "HuddleArch" */,
+				91A6D3DB2DB3553200BFBF88 /* XCRemoteSwiftPackageReference "NumSwift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 914349502DB04D8E00B1BA76 /* Products */;
@@ -625,6 +629,14 @@
 				minimumVersion = 1.0.23;
 			};
 		};
+		91A6D3DB2DB3553200BFBF88 /* XCRemoteSwiftPackageReference "NumSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wvabrinskas/NumSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.13;
+			};
+		};
 		91E5FD112DB07E1C00272372 /* XCRemoteSwiftPackageReference "Logger" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wvabrinskas/Logger.git";
@@ -653,6 +665,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91A6D32A2DB1C9E300BFBF88 /* XCRemoteSwiftPackageReference "HuddleArch" */;
 			productName = HuddleMacros;
+		};
+		91A6D3DC2DB3553200BFBF88 /* NumSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A6D3DB2DB3553200BFBF88 /* XCRemoteSwiftPackageReference "NumSwift" */;
+			productName = NumSwift;
 		};
 		91E5FD122DB07E1C00272372 /* Logger */ = {
 			isa = XCSwiftPackageProductDependency;

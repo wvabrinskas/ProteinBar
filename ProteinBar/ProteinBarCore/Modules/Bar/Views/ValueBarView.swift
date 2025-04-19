@@ -25,7 +25,6 @@ public struct ValueBarView: View {
   
   @Binding public var value: Int
   public var viewModel: ValueBarViewModel
-  public var onDelete: ((_ id: String) -> ())
 
   public var body: some View {
     VStack(spacing: 8) {
@@ -63,9 +62,6 @@ public struct ValueBarView: View {
       .padding([.leading, .trailing], 8)
       .padding(.bottom, 16)
     }
-    .modifier(CloseButtonModifier(show: viewModel.editing, onDelete: {
-      onDelete(viewModel.id)
-    }))
     .padding()
     .depth(foregroundColor: .backgroundColorTop)
   }
@@ -113,25 +109,25 @@ struct ValueBarView_Previews: PreviewProvider {
                     .capitalized,
                                     range: 0...100,
                                     barColor: .app(.proteinColor),
-                                    id: TrackingName.protein.rawValue)) {id in }
+                                    id: TrackingName.protein.rawValue))
       ValueBarView(value: .constant(50),
                    viewModel: .init(title: TrackingName.water.rawValue
                     .capitalized,
                                     range: 0...100,
                                     barColor: .app(.waterColor),
-                                    id: TrackingName.water.rawValue)) {id in }
+                                    id: TrackingName.water.rawValue))
       ValueBarView(value: .constant(50),
                    viewModel: .init(title: TrackingName.fiber.rawValue
                     .capitalized,
                                     range: 0...100,
                                     barColor: .app(.fiberColor),
-                                    id: TrackingName.fiber.rawValue)) {id in }
+                                    id: TrackingName.fiber.rawValue))
       ValueBarView(value: .constant(50),
                    viewModel: .init(title: TrackingName.carbohydrates.rawValue
                     .capitalized,
                                     range: 0...100,
                                     barColor: .app(.carbColor),
-                                    id: TrackingName.carbohydrates.rawValue)) {id in }
+                                    id: TrackingName.carbohydrates.rawValue))
     }
     .padding()
       .preview()

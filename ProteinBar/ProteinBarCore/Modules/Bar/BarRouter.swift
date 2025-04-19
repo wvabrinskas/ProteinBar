@@ -22,7 +22,9 @@ public struct BarViewComponentImpl: BarViewComponent {
 }
 
 @MainActor
-public protocol BarRouting: Router {}
+public protocol BarRouting: Router {
+  func routeToSettingsView() -> any View
+}
 
 @MainActor
 public class BarRouter: Router, BarRouting, @preconcurrency Logger {
@@ -46,5 +48,13 @@ public class BarRouter: Router, BarRouting, @preconcurrency Logger {
             module: component.module,
             moduleHolder: component.moduleHolder,
             viewModel: component.module.viewModel)
+  }
+  
+  public func routeToSettingsView() -> any View {
+    guard let settingsRouter: SettingsRouting = moduleHolder?.router(for: SettingsSupporting.self) else {
+      fatalError()
+    }
+    
+    return settingsRouter.rootView()
   }
 }

@@ -53,7 +53,8 @@ public class RootModuleHolder: ModuleHolder, RootSupporting, Module, @unchecked 
     super.init(holder: holder)
 
     supportedModules = [
-      BarBuilder.build(parentComponent: component, holder: self, context: context)
+      BarBuilder.build(parentComponent: component, holder: self, context: context),
+      SettingsBuilder.build(parentComponent: component, holder: self, context: context)
     ]
   }
   

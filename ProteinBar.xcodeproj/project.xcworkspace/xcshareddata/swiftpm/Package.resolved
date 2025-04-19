@@ -1,5 +1,5 @@
 {
-  "originHash" : "58e6f9616b32d4032524218bf06d50d8e9addea1d8667d5a8b0b2b0089fbe656",
+  "originHash" : "372c3ddb3d61f50acbf62083f5fcd01af160ceb66f4abfe19bba0e938d7ce441",
   "pins" : [
     {
       "identity" : "huddlearch",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "72e4516de6c671d00588031098438a933ee0d370",
         "version" : "1.0.7"
+      }
+    },
+    {
+      "identity" : "numswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wvabrinskas/NumSwift",
+      "state" : {
+        "revision" : "34ebaf5f1e2061063ac7b18edc83135ada57ae0f",
+        "version" : "2.0.13"
       }
     },
     {

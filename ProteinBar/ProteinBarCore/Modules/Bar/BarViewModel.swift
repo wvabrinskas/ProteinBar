@@ -15,14 +15,14 @@ import HuddleArch
 public final class BarViewModel {
   var values: TrackingValues
   var reset: Bool
-  var editing: Bool
+  var settings: Bool
   
   init(values: TrackingValues = .empty(),
        reset: Bool = false,
-       editing: Bool = false) {
+       settings: Bool = false) {
     self.values = values
     self.reset = reset
-    self.editing = editing
+    self.settings = settings
   }
 }
 
