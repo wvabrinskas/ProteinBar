@@ -22,6 +22,8 @@ public class BarModuleComponentImpl: Component, BarModuleComponent {
 
 public protocol BarSupporting {
   var viewModel: BarViewModel { get }
+  func save()
+  func reset()
 }
 
 public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleComponentImpl,  BarRouter>, BarSupporting {
@@ -37,20 +39,32 @@ public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleCom
   }
   
   public func save() {
-    let newValues = TrackingValues(values: viewModel.values)
-    sharedStorageProvider.setDataObject(key: .trackingValues, data: newValues)
+    sharedStorageProvider.setDataObject(key: .trackingValues, data: viewModel.values)
+  }
+  
+  public func reset() {
+    viewModel.values = .empty()
+    sharedStorageProvider.setDataObject(key: .trackingValues, data: TrackingValues.empty())
+  }
+  
+  public func remove(id: String) {
+    guard let name = TrackingName(rawValue: id) else { return }
+    
+    let filteredCurrent = viewModel.values.values.filter { $0.name != name }
+    viewModel.values = .init(values: filteredCurrent)
+    save()
   }
   
   // MARK: Private
   
   @MainActor
   private func setupViewModel() {
-    let availableTrackingNames: [TrackingName] = TrackingName.allCases
-    
-    let viewModels = availableTrackingNames.map {
-      TrackingValue(name: $0, value: 0, maxValue: $0.defaultMaxValue)
+    guard let currentTrackingValues: TrackingValues = sharedStorageProvider.getDataObject(key: .trackingValues) else {
+      viewModel = .init(values: TrackingValues.empty())
+      return
     }
     
-    viewModel = .init(values: viewModels)
+    viewModel = .init(values: currentTrackingValues)
   }
 }
+

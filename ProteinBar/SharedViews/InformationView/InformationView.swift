@@ -48,7 +48,7 @@ public struct InformationViewModel {
   var buttons: [InformationButton] = []
 }
 
-public typealias InformationButtonAction = () async throws -> ()
+public typealias InformationButtonAction = () -> ()
 
 public struct InformationButtonViewModel {
   enum ButtonType {
@@ -85,45 +85,22 @@ public struct InformationButton: View {
   
   public var body: some View {
     Text("")
-//    HuddleButton(viewModel: HuddleButtonViewModel(image: Image(systemName: viewModel.icon),
-//                                                  text: buttonTitle,
-//                                                  imageSize: viewModel.imageSize,
-//                                                  textSize: viewModel.textSize,
-//                                                  foregroundColor: viewModel.type.color(theme: theme),
-//                                                  buttonSize: viewModel.buttonSize ?? CGSize(width: 120, height: 40),
-//                                                  cornerRadius: 30,
-//                                                  enabled: true,
-//                                                  analyticsName: "information_button_" + buttonTitle)) {
-//      Task { @MainActor in
-//        do {
-//          timer = Timer(timeInterval: 3, repeats: false, block: { t in
-//            Task { @MainActor in
-//              updateButtonTitle(string: "...")
-//            }
-//          })
-//          try await viewModel.action()
-//          timer?.invalidate()
-//          timer = nil
-//        } catch {
-//          buttonTitle = "Error"
-//          return
-//        }
-//        
-//        if case .action(let title) = viewModel.type {
-//          withAnimation {
-//            actionComplete = true
-//            buttonTitle = title
-//            Timer.mainScheduledTimerAutoStop(withTimeInterval: 1, repeats: false) {
-//              updateButtonTitle(string: viewModel.title)
-//            }
-//          }
-//        }
-//      }
-//      
-//    }
-//    .onAppear {
-//      buttonTitle = viewModel.title
-//    }
+    
+    ProteinBarButton(viewModel: .init(image: Image(systemName: viewModel.icon),
+                                      title: buttonTitle,
+                                      textSize: viewModel.textSize,
+                                      imageSize: viewModel.imageSize,
+                                      foregroundColor: theme.backgroundColorTop,
+                                      buttonSize: viewModel.buttonSize ?? CGSize(width: 120,
+                                                                                 height: 40),
+                                      cornerRadius: 30,
+                                      enabled: true,
+                                     backgroundColor: viewModel.type.color(theme: theme))) {
+      viewModel.action()
+    }
+    .onAppear {
+      buttonTitle = viewModel.title
+    }
   }
   
   @MainActor
@@ -191,11 +168,7 @@ public struct InformationView: View {
           
         }
         .padding(20)
-        .background(
-          .ultraThinMaterial,
-          in: RoundedRectangle(cornerRadius: 35,
-                               style: .continuous)
-        )
+        .depth()
         .colorScheme(.light)
         .scaleEffect(x: scale, y: scale)
         .animation(theme.springAnimation, value: scale)

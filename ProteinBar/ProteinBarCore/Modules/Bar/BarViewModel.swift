@@ -13,9 +13,16 @@ import HuddleArch
 
 @Observable
 public final class BarViewModel {
-  var values: [TrackingValue]
+  var values: TrackingValues
+  var reset: Bool
+  var editing: Bool
   
-  init(values: [TrackingValue] = []) {
+  init(values: TrackingValues = .empty(),
+       reset: Bool = false,
+       editing: Bool = false) {
     self.values = values
+    self.reset = reset
+    self.editing = editing
   }
 }
+

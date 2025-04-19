@@ -82,7 +82,8 @@ public struct ProteinBarButton: View {
         action()
       } label: {
         RoundedRectangle(cornerRadius: viewModel.cornerRadius, style: .continuous)
-          .depth(cornerRadius: viewModel.cornerRadius)
+          .fill(color)
+          //.depthShape(foregroundColor: color, cornerRadius: viewModel.cornerRadius)
           .frame(width: viewModel.buttonSize.width, height: viewModel.buttonSize.height)
           .overlay {
             HStack {
@@ -123,7 +124,7 @@ struct ProteinBarButton_Previews: PreviewProvider {
     ProteinBarButton(viewModel: .circle(image: Image(systemName: "pencil"),
                                         size: 26,
                                         buttonSize: 60,
-                                        backgroundColor: nil,
+                                        backgroundColor: .app(.buttonPrimary),
                                         foregroundColor: .white,
                                         enabled: true)) {
       

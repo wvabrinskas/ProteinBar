@@ -15,6 +15,8 @@ public struct ValueBarViewModel {
   var range: ClosedRange<Int>
   var barColor: Color
   var leadingIcon: Image?
+  var editing: Bool = false
+  var id: String
 }
 
 public struct ValueBarView: View {
@@ -23,6 +25,7 @@ public struct ValueBarView: View {
   
   @Binding public var value: Int
   public var viewModel: ValueBarViewModel
+  public var onDelete: ((_ id: String) -> ())
 
   public var body: some View {
     VStack(spacing: 8) {
@@ -60,6 +63,9 @@ public struct ValueBarView: View {
       .padding([.leading, .trailing], 8)
       .padding(.bottom, 16)
     }
+    .modifier(CloseButtonModifier(show: viewModel.editing, onDelete: {
+      onDelete(viewModel.id)
+    }))
     .padding()
     .depth(foregroundColor: .backgroundColorTop)
   }
@@ -75,26 +81,59 @@ public struct ValueBarView: View {
   }
 }
 
+struct CloseButtonModifier: ViewModifier {
+  
+  @Environment(\.theme) var theme
+  var show: Bool
+  public var onDelete: () -> ()
+  
+  func body(content: Content) -> some View {
+    HStack(spacing: 0) {
+      content
+      ProteinBarButton(viewModel: .circle(image: Image(systemName: "trash"),
+                                          size: 21,
+                                          buttonSize: 45,
+                                          backgroundColor: theme.errorColor,
+                                          foregroundColor: theme.backgroundColorTop,
+                                          enabled: true)) {
+        onDelete()
+      }
+                                          .align(.trailing)
+                                          .frame(width: 55)
+                                          .isHidden(show == false, remove: true)
+    }
+  }
+}
+
 struct ValueBarView_Previews: PreviewProvider {
   static var previews: some View {
-    VStack {
+    ScrollView {
       ValueBarView(value: .constant(50),
                    viewModel: .init(title: TrackingName.protein.rawValue
                     .capitalized,
-                                    range: 0...100, barColor: .app(.proteinColor)))
+                                    range: 0...100,
+                                    barColor: .app(.proteinColor),
+                                    id: TrackingName.protein.rawValue)) {id in }
       ValueBarView(value: .constant(50),
                    viewModel: .init(title: TrackingName.water.rawValue
                     .capitalized,
-                                    range: 0...100, barColor: .app(.waterColor)))
+                                    range: 0...100,
+                                    barColor: .app(.waterColor),
+                                    id: TrackingName.water.rawValue)) {id in }
       ValueBarView(value: .constant(50),
                    viewModel: .init(title: TrackingName.fiber.rawValue
                     .capitalized,
-                                    range: 0...100, barColor: .app(.fiberColor)))
+                                    range: 0...100,
+                                    barColor: .app(.fiberColor),
+                                    id: TrackingName.fiber.rawValue)) {id in }
       ValueBarView(value: .constant(50),
                    viewModel: .init(title: TrackingName.carbohydrates.rawValue
                     .capitalized,
-                                    range: 0...100, barColor: .app(.carbColor)))
+                                    range: 0...100,
+                                    barColor: .app(.carbColor),
+                                    id: TrackingName.carbohydrates.rawValue)) {id in }
     }
+    .padding()
       .preview()
   }
 }

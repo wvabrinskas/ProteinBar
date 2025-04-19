@@ -72,13 +72,23 @@ enum TrackingName: String, Codable, CaseIterable {
   }
 }
 
-struct TrackingValues: Codable {
+struct TrackingValues: Codable, Equatable {
   var values: [TrackingValue] = []
+  
+  static func empty() -> Self {
+    let availableTrackingNames: [TrackingName] = TrackingName.allCases
+    
+    let viewModels = availableTrackingNames.map {
+      TrackingValue(name: $0, value: 0, maxValue: $0.defaultMaxValue)
+    }
+    
+    return .init(values: viewModels)
+  }
 }
 
 struct TrackingValue: Codable, Identifiable, Equatable {
-  var id: TrackingName {
-    name
+  var id: String {
+    name.rawValue + "_\(value)"
   }
   
   var name: TrackingName

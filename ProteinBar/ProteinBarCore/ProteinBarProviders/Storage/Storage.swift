@@ -14,7 +14,7 @@ public enum SharedStorageKeys: String, StorageKeying {
   public func defaultValue<T: Eraseable>() -> T? {
     switch self {
     case .trackingValues:
-      return TrackingValues() as? T
+      return TrackingValues.empty() as? T
     }
   }
 }

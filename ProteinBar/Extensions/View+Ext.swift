@@ -9,6 +9,58 @@ import Combine
 import Foundation
 import SwiftUI
 
+public struct Dimension<Content: Shape>: View {
+  let color: Color
+  let content: Content
+  
+  public var body: some View {
+      content
+      .fill(Gradient(colors: [color, color.opacity(0.8)]))
+      .stroke(Gradient(colors: [.white.opacity(0.6), color]), lineWidth: 1)
+  }
+}
+
+public extension Shape {
+  func dimension(color: Color) -> some View {
+    Dimension(color: color, content: self)
+  }
+  
+  func depthShape(foregroundColor: Color = .app(.backgroundColorBottom), cornerRadius: CGFloat = 16) -> some View {
+    DepthShape(foregroundColor: foregroundColor, cornerRadius: cornerRadius, content: self)
+  }
+}
+
+public struct DepthShape<Content: Shape>: View  {
+  @Environment(\.theme) var theme
+  
+  var foregroundColor: Color
+  var cornerRadius: CGFloat
+  let content: Content
+  
+  public var body: some View {
+    content
+        .fill(.shadow(.inner(color: theme.shadowColor.opacity(0.3),
+                             radius: 1,
+                             x: 0,
+                             y: 3)))
+          .foregroundStyle(foregroundColor)
+      .overlay(
+          RoundedRectangle(cornerRadius: cornerRadius)
+            .strokeBorder( LinearGradient(
+              gradient: Gradient(colors: [
+                theme.shadowColor.opacity(0.2),
+                Color.black.opacity(0.1)
+              ]),
+              startPoint: .top,
+              endPoint: .bottom
+          ),
+                           lineWidth: 1)
+      )
+      .compositingGroup()
+      .shadow(color: theme.shadowColor.opacity(0.2), radius: 2, x: 0, y: 3)
+  }
+}
+
 public struct Depth: ViewModifier {
   @Environment(\.theme) var theme
   

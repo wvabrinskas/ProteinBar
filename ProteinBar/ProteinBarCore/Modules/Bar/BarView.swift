@@ -22,31 +22,77 @@ public struct BarView: View {
   
   public var body: some View {
     VStack {
-      ProteinBarLabel(text: "Protein Bar",
-                      color: theme.primaryTextColor,
-                      size: 42,
-                      fontWeight: .heavy)
+      ZStack {
+        ProteinBarButton(viewModel: .circle(image: Image(systemName: "arrow.clockwise"),
+                                            size: 32,
+                                            buttonSize: 32,
+                                            backgroundColor: .clear,
+                                            foregroundColor: theme.primaryTextColor,
+                                            enabled: true)) {
+          viewModel.reset.toggle()
+        }
+        .align(.leading)
+        .padding(.leading, 16)
+        
+        ProteinBarButton(viewModel: .circle(image: Image(systemName: "pencil"),
+                                            size: 28,
+                                            buttonSize: 38,
+                                            backgroundColor: .clear,
+                                            foregroundColor: theme.primaryTextColor,
+                                            enabled: true)) {
+          viewModel.editing.toggle()
+        }
+        .align(.trailing)
+        .padding(.trailing, 16)
+        
+        ProteinBarLabel(text: "Protein Bar",
+                        color: theme.primaryTextColor,
+                        size: 42,
+                        fontWeight: .heavy)
+      }
+
       ScrollView {
         LazyVStack {
-          ForEach(0..<viewModel.values.count, id: \.self) { i in
-            let value = self.viewModel.values[i]
+          ForEach(0..<viewModel.values.values.count, id: \.self) { i in
+            let value = viewModel.values.values[i]
             
-            ValueBarView(value: $viewModel.values[i].value,
+            ValueBarView(value: $viewModel.values.values[i].value,
                          viewModel: .init(title: value.name.rawValue.capitalized,
                                           unit: value.name.unit,
                                           range: 0...value.maxValue,
                                           barColor: value.name.barColor(theme: theme),
-                                          leadingIcon: value.name.icon))
+                                          leadingIcon: value.name.icon,
+                                          id: value.name.rawValue)) { id in
+                remove(id: id)
+            }
           }
         }
         .padding()
       }
     }
     .onChange(of: viewModel.values, { oldValue, newValue in
-      print(newValue)
+      module.save()
     })
+    .popup(show: $viewModel.reset, viewModel: .init(title: "Reset", subtitle: "Reset all values to default?",
+                                                    body: nil,
+                                                    detailTitle: nil,
+                                                    closeType: .destructive,
+                                                    buttons: [
+      .init(viewModel: .init(title: "Okay",
+                             icon: "checkmark",
+                             action: {
+                               withAnimation {
+                                 module.reset()
+                               }
+        viewModel.reset.toggle()
+      }))
+    ]))
     .fullscreen()
     .applyThemeBackground(gradient: false)
+  }
+  
+  private func remove(id: String) {
+    
   }
 }
 
