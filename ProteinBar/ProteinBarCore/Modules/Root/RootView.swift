@@ -19,6 +19,8 @@ struct RootView: View {
   var body: some View {
     router.routeToBarView()
     .asAnyView()
+    .fullscreen()
+    .applyThemeBackground(gradient: false)
   }
 }
 

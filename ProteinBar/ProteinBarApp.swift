@@ -16,6 +16,7 @@ struct ProteinBarApp: App {
       rootModule
         .routeToRootView()
         .asAnyView()
+        .preferredColorScheme(.light)
     }
   }
 }

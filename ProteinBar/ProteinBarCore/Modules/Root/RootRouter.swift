@@ -44,7 +44,7 @@ public final class RootRouter: Router, RootRouting {
   }
   
   public func routeToBarView() -> any View {
-    guard let barRouter: BarRouting = moduleHolder?.router(for: BarSupporting.self) else {
+    guard let barRouter: BarRouting = module.router(for: BarSupporting.self) else {
       fatalError("Could not find bar router")
     }
     

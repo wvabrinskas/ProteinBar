@@ -9,6 +9,38 @@ import Combine
 import Foundation
 import SwiftUI
 
+public struct Depth: ViewModifier {
+  @Environment(\.theme) var theme
+  
+  var foregroundColor: Color
+  var cornerRadius: CGFloat
+  
+  public func body(content: Content) -> some View {
+    content
+      .background(RoundedRectangle(cornerRadius: cornerRadius,
+                                   style: .continuous)
+        .fill(.shadow(.inner(color: theme.shadowColor.opacity(0.3),
+                             radius: 1,
+                             x: 0,
+                             y: 3)))
+          .foregroundStyle(foregroundColor))
+      .overlay(
+          RoundedRectangle(cornerRadius: cornerRadius)
+            .strokeBorder( LinearGradient(
+              gradient: Gradient(colors: [
+                theme.shadowColor.opacity(0.2),
+                Color.black.opacity(0.1)
+              ]),
+              startPoint: .top,
+              endPoint: .bottom
+          ),
+                           lineWidth: 1)
+      )
+      .compositingGroup()
+      .shadow(color: theme.shadowColor.opacity(0.2), radius: 2, x: 0, y: 3)
+  }
+}
+
 public struct FadeIn: ViewModifier {
   var duration: CGFloat
   @State private var opacity: CGFloat = 0
@@ -60,9 +92,24 @@ public struct OptionalFrame<Frame: View> : ViewModifier {
     }
   }
 }
+
 public extension View {
+  @ViewBuilder func isHidden(_ hidden: Bool, remove: Bool = false) -> some View {
+    if hidden {
+      if !remove {
+        self.hidden()
+      }
+    } else {
+      self
+    }
+  }
+  
   func align(_ alignment: Alignment) -> some View {
     self.modifier(AlignView(alignment: alignment))
+  }
+  
+  func depth(foregroundColor: Color = .app(.backgroundColorBottom), cornerRadius: CGFloat = 16) -> some View {
+    modifier(Depth(foregroundColor: foregroundColor, cornerRadius: cornerRadius))
   }
   
   func asAnyView() -> AnyView {
@@ -97,7 +144,7 @@ public extension View {
       .previewDisplayName("iPhone SE (3rd generation)")
   }
   
-  func iphone15ProMaxPreview() -> some View {
+  func iphoneProMaxPreview() -> some View {
     self
       .previewDevice(PreviewDevice(rawValue: "iPhone 16 Pro Max"))
       .previewDisplayName("iPhone 16 Pro Max")
@@ -150,7 +197,7 @@ struct AppBackground: View {
                               theme.backgroundColorBottom], startPoint: .top,
                      endPoint: .bottom)
     } else {
-      theme.backgroundColorTop
+      theme.backgroundColorBottom
     }
   }
 }
@@ -169,12 +216,12 @@ struct HuddlePreviewProvider: ViewModifier {
   public func body(content: Content) -> some View {
     content
       .fullscreen()
-      .applyThemeBackground()
-      .iphone15ProMaxPreview()
+      .applyThemeBackground(gradient: false)
+      .iphoneProMaxPreview()
     
     content
       .fullscreen()
-      .applyThemeBackground()
+      .applyThemeBackground(gradient: false)
       .iphoneSEPreview()
 
   }

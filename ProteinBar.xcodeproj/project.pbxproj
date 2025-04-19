@@ -38,11 +38,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		914349512DB04D8E00B1BA76 /* ProteinBar */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ProteinBar;
-			sourceTree = "<group>";
-		};
 		914349602DB04D8F00B1BA76 /* ProteinBarTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ProteinBarTests;
@@ -51,6 +46,11 @@
 		9143496A2DB04D8F00B1BA76 /* ProteinBarUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ProteinBarUITests;
+			sourceTree = "<group>";
+		};
+		91A6D3AC2DB338A400BFBF88 /* ProteinBar */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ProteinBar;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -88,7 +88,7 @@
 		914349462DB04D8E00B1BA76 = {
 			isa = PBXGroup;
 			children = (
-				914349512DB04D8E00B1BA76 /* ProteinBar */,
+				91A6D3AC2DB338A400BFBF88 /* ProteinBar */,
 				914349602DB04D8F00B1BA76 /* ProteinBarTests */,
 				9143496A2DB04D8F00B1BA76 /* ProteinBarUITests */,
 				914349502DB04D8E00B1BA76 /* Products */,
@@ -121,7 +121,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				914349512DB04D8E00B1BA76 /* ProteinBar */,
+				91A6D3AC2DB338A400BFBF88 /* ProteinBar */,
 			);
 			name = ProteinBar;
 			packageProductDependencies = (

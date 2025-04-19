@@ -11,7 +11,7 @@ import SwiftUI
 import HuddleArch
 import HuddleMacros
 
-public protocol RootSupporting {
+public protocol RootSupporting: ModuleHolding {
   var viewModel: RootViewModel { get }
   @MainActor
   func routeToRootView() -> any View
