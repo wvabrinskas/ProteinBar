@@ -45,7 +45,7 @@ public struct TrackerCellView: View {
         
         ProteinBarLabel(text: "\(value.value) / \(value.maxValue) \(value.name.unit)",
                         color: theme.primaryTextColor.opacity(0.6),
-                        size: 16,
+                        size: 14,
                         fontWeight: .bold)
         
       }
@@ -74,9 +74,9 @@ public struct TrackerCellView: View {
 
 struct TrackerCellView_Previews: PreviewProvider {
   static var previews: some View {
-    TrackerCellView(viewModel: .init(value: .init(name: .carbohydrates,
-                                                  value: 10,
-                                                  maxValue: 100),
+    TrackerCellView(viewModel: .init(value: .init(name: .water,
+                                                  value: 100,
+                                                  maxValue: 1000),
                                      isSelected: true)) { _, _ in
       
     }

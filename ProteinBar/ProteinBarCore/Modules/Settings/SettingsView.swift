@@ -51,6 +51,9 @@ public struct SettingsView: View {
     .padding()
     .fullscreen()
     .applyThemeBackground()
+    .onAppear {
+      module.onAppear()
+    }
   }
   
   private func onSelected(selected: Bool, name: TrackingName) {
