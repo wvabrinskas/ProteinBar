@@ -10,6 +10,7 @@
 import Foundation
 import SwiftUI
 import HuddleArch
+import NumSwift
 
 public struct SettingsView: View {
   
@@ -27,8 +28,8 @@ public struct SettingsView: View {
                       size: 42,
                       fontWeight: .heavy)
       ScrollView {
-        Grid(horizontalSpacing: 30, verticalSpacing: 30) {
-          ProteinBarLabel(text: "Visible trackers",
+        Grid(horizontalSpacing: 0, verticalSpacing: 30) {
+          ProteinBarLabel(text: "Trackers",
                           color: theme.primaryTextColor,
                           size: 25,
                           fontWeight: .heavy)
@@ -37,10 +38,10 @@ public struct SettingsView: View {
           ForEach(0..<viewModel.trackingValues.count, id: \.self) { row in
             GridRow {
               ForEach(0..<viewModel.numberOfColumns, id: \.self) { column in
-                ProteinBarLabel(text: "(\(column), \(row))",
-                                color: theme.primaryTextColor,
-                                size: 16,
-                                fontWeight: .regular)
+                TrackerCellView(viewModel: .init(value: viewModel.trackingValues[safe: row]?[safe: column],
+                                                 isSelected: module.isTrackerSelected(name: viewModel.trackingValues[safe: row]?[safe: column]?.name))) { selected, name in
+                  onSelected(selected: selected, name: name)
+                }
               }
             }
           }
@@ -50,6 +51,10 @@ public struct SettingsView: View {
     .padding()
     .fullscreen()
     .applyThemeBackground()
+  }
+  
+  private func onSelected(selected: Bool, name: TrackingName) {
+    module.onSelected(selected: selected, name: name)
   }
 }
 

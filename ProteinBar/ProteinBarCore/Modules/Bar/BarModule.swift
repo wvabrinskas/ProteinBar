@@ -24,6 +24,10 @@ public protocol BarSupporting {
   var viewModel: BarViewModel { get }
   func save()
   func reset()
+  @MainActor
+  func setVisible(visible: Bool, name: TrackingName)
+  @MainActor
+  func isTrackerSelected(name: TrackingName?) -> Bool
 }
 
 public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleComponentImpl,  BarRouter>, BarSupporting {
@@ -35,36 +39,58 @@ public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleCom
     self.sharedStorageProvider = component.sharedStorageProvider
     
     super.init(holder: holder, context: context, component: component)
+
     setupViewModel()
   }
   
   public func save() {
-    sharedStorageProvider.setDataObject(key: .trackingValues, data: viewModel.values)
+    saveValues(viewModel.values)
   }
   
   public func reset() {
-    viewModel.values = .empty()
-    sharedStorageProvider.setDataObject(key: .trackingValues, data: TrackingValues.empty())
+    
+    let newValues: [TrackingValue] = viewModel.values.map { $0.updating(value: 0) }
+    
+    viewModel.values = newValues
+    sharedStorageProvider.setDataObject(key: .trackingValues, data: TrackingValues(values: newValues))
   }
   
-  public func remove(id: String) {
-    guard let name = TrackingName(rawValue: id) else { return }
+  @MainActor
+  public func isTrackerSelected(name: TrackingName?) -> Bool {
+    viewModel.values.first(where: { $0.name == name })?.visible ?? false
+  }
+  
+  @MainActor
+  public func setVisible(visible: Bool, name: TrackingName) {
+    var currentValues: [TrackingValue] = viewModel.values
     
-    let filteredCurrent = viewModel.values.values.filter { $0.name != name }
-    viewModel.values = .init(values: filteredCurrent)
-    save()
+    guard let indexOfValueToUpdate = currentValues.firstIndex(where: { $0.name == name }) else { return }
+    
+    currentValues[indexOfValueToUpdate] = currentValues[indexOfValueToUpdate].updating(visible: visible)
+        
+    saveValues(currentValues)
+
+    updateViewModel(with: currentValues)
   }
   
   // MARK: Private
   
+  private func saveValues(_ newValues: [TrackingValue]) {
+    sharedStorageProvider.setDataObject(key: .trackingValues, data: TrackingValues(values: newValues))
+  }
+  
+  private func updateViewModel(with newValues: [TrackingValue]) {
+    viewModel.values = newValues
+  }
+  
   @MainActor
   private func setupViewModel() {
     guard let currentTrackingValues: TrackingValues = sharedStorageProvider.getDataObject(key: .trackingValues) else {
-      viewModel = .init(values: TrackingValues.empty())
+      viewModel = .init(values: TrackingValues.empty().values)
       return
     }
     
-    viewModel = .init(values: currentTrackingValues)
+    updateViewModel(with: currentTrackingValues.values)
   }
 }
 

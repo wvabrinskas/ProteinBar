@@ -17,6 +17,7 @@ public struct ValueBarViewModel {
   var leadingIcon: Image?
   var editing: Bool = false
   var id: String
+  var hidden: Bool = false
 }
 
 public struct ValueBarView: View {
@@ -64,6 +65,7 @@ public struct ValueBarView: View {
     }
     .padding()
     .depth(foregroundColor: .backgroundColorTop)
+    .isHidden(viewModel.hidden, remove: true)
   }
   
   private func valueTitle() -> String {

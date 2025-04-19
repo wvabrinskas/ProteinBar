@@ -23,6 +23,10 @@ public class SettingsModuleComponentImpl: Component, SettingsModuleComponent {
 
 public protocol SettingsSupporting {
   var viewModel: SettingsViewModel { get }
+  @MainActor
+  func isTrackerSelected(name: TrackingName?) -> Bool
+  @MainActor
+  func onSelected(selected: Bool, name: TrackingName)
 }
 
 public final class SettingsModule: ModuleObject<RootModuleHolderContext, SettingsModuleComponentImpl,  SettingsRouter>, SettingsSupporting {
@@ -40,8 +44,21 @@ public final class SettingsModule: ModuleObject<RootModuleHolderContext, Setting
   
   // MARK: - Private
   
+  @MainActor
+  public func onSelected(selected: Bool, name: TrackingName) {
+    guard let barModule: BarSupporting = holder?.module() else { return }
+    barModule.setVisible(visible: selected, name: name)
+  }
+  
+  @MainActor
+  public func isTrackerSelected(name: TrackingName?) -> Bool {
+    guard let barModule: BarSupporting = holder?.module() else { return false }
+    
+    return barModule.isTrackerSelected(name: name)
+  }
+  
   private func buildViewModel() {
-    let currentTrackingValues: TrackingValues = sharedStorageProvider.getDataObject(key: .trackingValues) ?? .empty()
+    let currentTrackingValues: TrackingValues = .empty() // we want all of them
     
     let numberOfRows = Int(ceil(Float(currentTrackingValues.values.count) / Float(viewModel.numberOfColumns)))
             

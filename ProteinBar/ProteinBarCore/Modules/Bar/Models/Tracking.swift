@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum TrackingName: String, Codable, CaseIterable {
+public enum TrackingName: String, Codable, CaseIterable {
   case water, protein, carbohydrates, fiber, fat
   
   func barColor(theme: Theme) -> Color {
@@ -23,6 +23,15 @@ enum TrackingName: String, Codable, CaseIterable {
       return theme.fatColor
     case .fiber:
       return theme.fiberColor
+    }
+  }
+  
+  var shortName: String {
+    switch self {
+    case .carbohydrates:
+      return "Carbs"
+    default:
+      return rawValue
     }
   }
   
@@ -94,4 +103,12 @@ struct TrackingValue: Codable, Identifiable, Equatable {
   var name: TrackingName
   var value: Int
   var maxValue: Int
+  var visible: Bool = true
+  
+  func updating(value: Int? = nil, maxValue: Int? = nil, visible: Bool? = nil) -> TrackingValue {
+    .init(name: name,
+          value: value ?? self.value,
+          maxValue: maxValue ?? self.maxValue,
+          visible: visible ?? self.visible)
+  }
 }

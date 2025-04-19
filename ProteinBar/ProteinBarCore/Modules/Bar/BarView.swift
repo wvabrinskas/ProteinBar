@@ -53,16 +53,17 @@ public struct BarView: View {
 
       ScrollView {
         LazyVStack {
-          ForEach(0..<viewModel.values.values.count, id: \.self) { i in
-            let value = viewModel.values.values[i]
+          ForEach(0..<viewModel.values.count, id: \.self) { i in
+            let value: TrackingValue = viewModel.values[i]
             
-            ValueBarView(value: $viewModel.values.values[i].value,
+            ValueBarView(value: $viewModel.values[i].value,
                          viewModel: .init(title: value.name.rawValue.capitalized,
                                           unit: value.name.unit,
                                           range: 0...value.maxValue,
                                           barColor: value.name.barColor(theme: theme),
                                           leadingIcon: value.name.icon,
-                                          id: value.name.rawValue))
+                                          id: value.name.rawValue,
+                                          hidden: value.visible == false))
           }
         }
         .padding()
