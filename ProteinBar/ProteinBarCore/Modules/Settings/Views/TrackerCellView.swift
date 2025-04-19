@@ -63,7 +63,7 @@ public struct TrackerCellView: View {
       .overlay {
         RoundedRectangle(cornerRadius: 16, style: .continuous)
           .fill(.clear)
-          .stroke(theme.primaryTextColor, style: .init(lineWidth: selected ? 3 : 0))
+          .stroke(theme.primaryTextColor, style: .init(lineWidth: selected ? 5 : 0))
       }
     } else {
       EmptyView()

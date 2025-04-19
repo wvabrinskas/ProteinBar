@@ -57,7 +57,7 @@ public struct BarView: View {
             let value: TrackingValue = viewModel.values[i]
             
             ValueBarView(value: $viewModel.values[i].value,
-                         viewModel: .init(title: value.name.rawValue.capitalized,
+                         viewModel: .init(title: value.name.shortName.capitalized,
                                           unit: value.name.unit,
                                           range: 0...value.maxValue,
                                           barColor: value.name.barColor(theme: theme),
@@ -72,7 +72,7 @@ public struct BarView: View {
     .onChange(of: viewModel.values, { oldValue, newValue in
       module.save()
     })
-    .popup(show: $viewModel.reset, viewModel: .init(title: "Reset", subtitle: "Reset all values to default?",
+    .popup(show: $viewModel.reset, viewModel: .init(title: "Reset", subtitle: "Reset values to zero?",
                                                     body: nil,
                                                     detailTitle: nil,
                                                     closeType: .destructive,

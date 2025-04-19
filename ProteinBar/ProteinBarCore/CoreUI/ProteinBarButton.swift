@@ -83,14 +83,13 @@ public struct ProteinBarButton: View {
       } label: {
         RoundedRectangle(cornerRadius: viewModel.cornerRadius, style: .continuous)
           .fill(color)
-          //.depthShape(foregroundColor: color, cornerRadius: viewModel.cornerRadius)
           .frame(width: viewModel.buttonSize.width, height: viewModel.buttonSize.height)
           .overlay {
             HStack {
               ProteinBarLabel(text: viewModel.title ?? "",
                               color: viewModel.foregroundColor,
                               size: viewModel.textSize,
-                              fontWeight: .regular)
+                              fontWeight: .bold)
               .isHidden((viewModel.title == nil || viewModel.labelPosition == .below), remove: true)
               
               viewModel.image?

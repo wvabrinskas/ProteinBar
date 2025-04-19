@@ -44,7 +44,7 @@ public final class SettingsModule: ModuleObject<RootModuleHolderContext, Setting
     buildViewModel()
   }
   
-  // MARK: - Private
+  // TODO: A way to update the max value
   
   @MainActor
   public func onAppear() {
@@ -64,6 +64,9 @@ public final class SettingsModule: ModuleObject<RootModuleHolderContext, Setting
     return barModule.isTrackerSelected(name: name)
   }
   
+  
+  // MARK: - Private
+
   private func buildViewModel() {
     let currentTrackingValues: TrackingValues = sharedStorageProvider.getDataObject(key: .trackingValues) ?? .empty()
     
