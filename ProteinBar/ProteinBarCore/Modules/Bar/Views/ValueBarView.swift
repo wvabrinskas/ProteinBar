@@ -35,7 +35,7 @@ public struct ValueBarView: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .bold()
-            .foregroundStyle(theme.primaryTextColor.opacity(0.65))
+            .foregroundStyle(viewModel.barColor.opacity(0.65))
             .frame(width: 32, height: 32)
         }
         
@@ -46,11 +46,19 @@ public struct ValueBarView: View {
         
         Spacer()
         
-        ProteinBarLabel(text: valueTitle(),
-                        color: theme.primaryTextColor.opacity(0.65),
-                        size: 28,
-                        fontWeight: .heavy)
-        .contentTransition(.numericText())
+        VStack(alignment: .trailing) {
+          ProteinBarLabel(text: valueTitle(),
+                          color: theme.primaryTextColor.opacity(0.65),
+                          size: 28,
+                          fontWeight: .heavy)
+          .contentTransition(.numericText())
+          
+          ProteinBarLabel(text: maxValueTitle(),
+                          color: theme.primaryTextColor.opacity(0.4),
+                          size: 12,
+                          fontWeight: .heavy)
+        }
+
       }
       .padding([.leading, .trailing], 8)
       
@@ -70,6 +78,16 @@ public struct ValueBarView: View {
   
   private func valueTitle() -> String {
     var title = "\(Int(value))"
+    
+    if let unit = viewModel.unit {
+      title += " \(unit)"
+    }
+    
+    return title
+  }
+  
+  private func maxValueTitle() -> String {
+    var title = "\(viewModel.range.upperBound)"
     
     if let unit = viewModel.unit {
       title += " \(unit)"
