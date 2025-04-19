@@ -45,14 +45,14 @@ struct ColorSlider: View {
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
           .fill(trackColor)
           .frame(height: height)
-          .depth(foregroundColor: .clear)
+          .depth(foregroundColor: .clear, cornerRadius: cornerRadius)
         
         // Progress
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
           .fill(progressColor)
           .frame(width: CGFloat(((value - range.lowerBound) / (range.upperBound - range.lowerBound))) * geometry.size.width,
                  height: height)
-          .depth(foregroundColor: .clear)
+          .depth(foregroundColor: .clear, cornerRadius: cornerRadius)
         
         // Thumb
         RoundedRectangle(cornerRadius: 10, style: .continuous)
