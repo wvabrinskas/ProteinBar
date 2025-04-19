@@ -29,6 +29,8 @@ public protocol SettingsSupporting {
   func onSelected(selected: Bool, name: TrackingName)
   @MainActor
   func onAppear()
+  @MainActor
+  func setMaxValue(maxValue: Int, name: TrackingName) 
 }
 
 public final class SettingsModule: ModuleObject<RootModuleHolderContext, SettingsModuleComponentImpl,  SettingsRouter>, SettingsSupporting {
@@ -48,6 +50,14 @@ public final class SettingsModule: ModuleObject<RootModuleHolderContext, Setting
   
   @MainActor
   public func onAppear() {
+    buildViewModel()
+  }
+  
+  @MainActor
+  public func setMaxValue(maxValue: Int, name: TrackingName) {
+    guard let barModule: BarSupporting = holder?.module() else { return }
+    barModule.setMaxValue(maxValue: maxValue, name: name)
+    
     buildViewModel()
   }
   

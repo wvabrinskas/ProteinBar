@@ -39,8 +39,8 @@ public struct SettingsView: View {
             GridRow {
               ForEach(0..<viewModel.numberOfColumns, id: \.self) { column in
                 TrackerCellView(viewModel: .init(value: viewModel.trackingValues[safe: row]?[safe: column],
-                                                 isSelected: module.isTrackerSelected(name: viewModel.trackingValues[safe: row]?[safe: column]?.name))) { selected, name in
-                  onSelected(selected: selected, name: name)
+                                                 isSelected: module.isTrackerSelected(name: viewModel.trackingValues[safe: row]?[safe: column]?.name))) { action in
+                  handleAction(action: action)
                 }
               }
             }
@@ -56,8 +56,13 @@ public struct SettingsView: View {
     }
   }
   
-  private func onSelected(selected: Bool, name: TrackingName) {
-    module.onSelected(selected: selected, name: name)
+  private func handleAction(action: TrackerCellAction) {
+    switch action {
+    case .select(let selected, let name):
+      module.onSelected(selected: selected, name: name)
+    case .setMaxValue(let maxValue, let name):
+      module.setMaxValue(maxValue: maxValue, name: name)
+    }
   }
 }
 

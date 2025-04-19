@@ -11,6 +11,10 @@ import SwiftUI
 public enum TrackingName: String, Codable, CaseIterable {
   case water, protein, carbohydrates, fiber, fat
   
+  static var maxMaxValue: Int {
+    return 9999
+  }
+  
   func barColor(theme: Theme) -> Color {
     switch self {
     case .water:
@@ -79,6 +83,7 @@ public enum TrackingName: String, Codable, CaseIterable {
       return "g"
     }
   }
+
 }
 
 struct TrackingValues: Codable, Equatable {

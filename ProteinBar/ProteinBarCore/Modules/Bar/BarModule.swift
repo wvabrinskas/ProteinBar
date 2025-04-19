@@ -28,6 +28,8 @@ public protocol BarSupporting {
   func setVisible(visible: Bool, name: TrackingName)
   @MainActor
   func isTrackerSelected(name: TrackingName?) -> Bool
+  @MainActor
+  func setMaxValue(maxValue: Int, name: TrackingName)
 }
 
 public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleComponentImpl,  BarRouter>, BarSupporting {
@@ -58,6 +60,22 @@ public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleCom
   @MainActor
   public func isTrackerSelected(name: TrackingName?) -> Bool {
     viewModel.values.first(where: { $0.name == name })?.visible ?? false
+  }
+  
+  @MainActor
+  public func setMaxValue(maxValue: Int, name: TrackingName) {
+    var currentValues: [TrackingValue] = viewModel.values
+    
+    guard let indexOfValueToUpdate = currentValues.firstIndex(where: { $0.name == name }) else { return }
+    
+    let currentValue = currentValues[indexOfValueToUpdate].value
+    
+    currentValues[indexOfValueToUpdate] = currentValues[indexOfValueToUpdate].updating(value: min(currentValue, maxValue),
+                                                                                       maxValue: min(maxValue, TrackingName.maxMaxValue))
+        
+    saveValues(currentValues)
+
+    updateViewModel(with: currentValues)
   }
   
   @MainActor
