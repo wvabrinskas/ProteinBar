@@ -64,6 +64,8 @@ public enum Colors {
 }
 
 public protocol Theme {
+  associatedtype A: Assets
+  var assets: A { get }
   var primaryColor: Color { get }
   var secondaryColor: Color { get }
   var primaryTextColor: Color { get }
@@ -91,6 +93,7 @@ public extension Color {
 }
 
 struct LaunchTheme: Theme, Sendable {
+  var assets = LaunchAssets()
   var primaryColor: Color { .app(.primaryAppColor) }
   var secondaryColor: Color { .app(.secondaryAppColor) }
   var primaryTextColor: Color { .app(.primaryTextColor) }

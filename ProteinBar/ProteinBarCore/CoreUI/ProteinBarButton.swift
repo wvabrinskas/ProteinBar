@@ -97,7 +97,7 @@ public struct ProteinBarButton: View {
                 .bold()
                 .aspectRatio(contentMode:.fit)
                 .frame(width: viewModel.imageSize)
-                .foregroundStyle(viewModel.foregroundColor.gradient.shadow(.inner(color: .black.opacity(0.2),
+                .foregroundStyle(viewModel.foregroundColor.shadow(.inner(color: .black.opacity(0.2),
                                                                                   radius: 0.7,
                                                                                   x: 0,
                                                                                   y: 0)))

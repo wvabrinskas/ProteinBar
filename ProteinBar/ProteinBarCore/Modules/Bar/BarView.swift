@@ -24,7 +24,7 @@ public struct BarView: View {
     VStack {
       ZStack {
         ProteinBarButton(viewModel: .circle(image: Image(systemName: "arrow.clockwise"),
-                                            size: 32,
+                                            size: 24,
                                             buttonSize: 32,
                                             backgroundColor: .clear,
                                             foregroundColor: theme.primaryTextColor,
@@ -35,7 +35,7 @@ public struct BarView: View {
         .padding(.leading, 16)
         
         ProteinBarButton(viewModel: .circle(image: Image(systemName: "gearshape.fill"),
-                                            size: 32,
+                                            size: 28,
                                             buttonSize: 32,
                                             backgroundColor: .clear,
                                             foregroundColor: theme.primaryTextColor,
@@ -44,10 +44,10 @@ public struct BarView: View {
         }
         .align(.trailing)
         .padding(.trailing, 16)
-        
+
         ProteinBarLabel(text: "Protein Bar",
-                        color: theme.primaryTextColor,
-                        size: 42,
+                        color: theme.primaryTextColor.opacity(0.65),
+                        size: 32,
                         fontWeight: .heavy)
       }
 
