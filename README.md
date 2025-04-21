@@ -1,5 +1,3 @@
-# Protein Bar
-
 <p align="center">
   <img src="assets/protein-bar-icon.svg" width="200" height="200">
 </p>
