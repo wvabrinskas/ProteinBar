@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import HuddleArch
+import ConfettiSwiftUI
 
 public struct ValueBarViewModel {
   var title: String
@@ -25,6 +26,7 @@ public struct ValueBarView: View {
   @Environment(\.theme) var theme
   
   @Binding public var value: Int
+  @State private var trigger: Int = 0
   public var viewModel: ValueBarViewModel
 
   public var body: some View {
@@ -71,9 +73,15 @@ public struct ValueBarView: View {
       .padding([.leading, .trailing], 8)
       .padding(.bottom, 16)
     }
+    .onChange(of: value, { oldValue, newValue in
+      if newValue == viewModel.range.upperBound {
+        self.trigger += 1
+      }
+    })
     .padding()
     .depth(foregroundColor: .backgroundColorTop)
     .isHidden(viewModel.hidden, remove: true)
+    .confettiCannon(trigger: $trigger, colors: [viewModel.barColor])
   }
   
   private func valueTitle() -> String {

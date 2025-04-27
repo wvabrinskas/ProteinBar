@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9186356C2DBEF639003890E6 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9186356B2DBEF639003890E6 /* ConfettiSwiftUI */; };
 		91A6D3272DB1C91900BFBF88 /* HuddleArch in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D3262DB1C91900BFBF88 /* HuddleArch */; };
 		91A6D3292DB1C91900BFBF88 /* HuddleMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D3282DB1C91900BFBF88 /* HuddleMacros */; };
 		91A6D32C2DB1C9E300BFBF88 /* HuddleArch in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D32B2DB1C9E300BFBF88 /* HuddleArch */; };
@@ -80,6 +81,7 @@
 				91A6D32C2DB1C9E300BFBF88 /* HuddleArch in Frameworks */,
 				91E5FD132DB07E1C00272372 /* Logger in Frameworks */,
 				91A6D3DD2DB3553200BFBF88 /* NumSwift in Frameworks */,
+				9186356C2DBEF639003890E6 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +148,7 @@
 				91A6D32B2DB1C9E300BFBF88 /* HuddleArch */,
 				91A6D32D2DB1C9E300BFBF88 /* HuddleMacros */,
 				91A6D3DC2DB3553200BFBF88 /* NumSwift */,
+				9186356B2DBEF639003890E6 /* ConfettiSwiftUI */,
 			);
 			productName = ProteinBar;
 			productReference = 9143494F2DB04D8E00B1BA76 /* ProteinBar.app */;
@@ -233,6 +236,7 @@
 				91E5FD112DB07E1C00272372 /* XCRemoteSwiftPackageReference "Logger" */,
 				91A6D32A2DB1C9E300BFBF88 /* XCRemoteSwiftPackageReference "HuddleArch" */,
 				91A6D3DB2DB3553200BFBF88 /* XCRemoteSwiftPackageReference "NumSwift" */,
+				9186356A2DBEF639003890E6 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 914349502DB04D8E00B1BA76 /* Products */;
@@ -454,7 +458,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
@@ -500,7 +504,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
@@ -650,6 +654,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9186356A2DBEF639003890E6 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		91A6D32A2DB1C9E300BFBF88 /* XCRemoteSwiftPackageReference "HuddleArch" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wvabrinskas/HuddleArch";
@@ -677,6 +689,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9186356B2DBEF639003890E6 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9186356A2DBEF639003890E6 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
 		91A6D3262DB1C91900BFBF88 /* HuddleArch */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HuddleArch;
