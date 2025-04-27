@@ -53,6 +53,7 @@ struct ColorSlider: View {
         subtractValue()
       }
                                           .padding(.top, 10)
+                                          .sensoryFeedback(.decrease, trigger: value)
       
       GeometryReader { geometry in
         
@@ -98,15 +99,13 @@ struct ColorSlider: View {
         addValue()
       }
                                           .padding(.top, 10)
+                                          .sensoryFeedback(.increase, trigger: value)
       
     }
     .frame(height: height)
   }
   
   private func addValue() {
-    let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
-    impactFeedback.impactOccurred()
-    
     withAnimation(.easeOut(duration: 0.35)) {
       let newValue = value + 1
       value = max(range.lowerBound, min(range.upperBound, newValue))
@@ -114,9 +113,6 @@ struct ColorSlider: View {
   }
   
   private func subtractValue() {
-    let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
-    impactFeedback.impactOccurred()
-    
     withAnimation(.easeOut(duration: 0.35)) {
       let newValue = value - 1
       value = max(range.lowerBound, min(range.upperBound, newValue))
