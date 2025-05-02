@@ -15,15 +15,23 @@ public protocol RootSupporting: ModuleHolding {
   var viewModel: RootViewModel { get }
   @MainActor
   func routeToRootView() -> any View
+  @MainActor
+  func onAppear() async
 }
 
 public protocol RootComponent: Component {
   var sharedStorageProvider: UserStorageProvider<SharedStorageKeys> { get }
+  var extensionStorageProvider: UserStorageProvider<ExtensionStorageKeys> { get }
+  var widgetUpdater: WidgetUpdating { get }
 }
 
 @RootComponentImpl
 public class RootModuleComponentImpl: Component, RootComponent {
   public var sharedStorageProvider: UserStorageProvider<SharedStorageKeys> = .init(defaults: .standard)
+  public var extensionStorageProvider: UserStorageProvider<ExtensionStorageKeys> = .init(defaults: UserDefaults(suiteName: SharedAppGroups.widget.rawValue ) ?? .standard)
+  public var widgetUpdater: WidgetUpdating {
+    WidgetUpdater(extensionStorageProvider: extensionStorageProvider)
+  }
   
   public init() { super.init(parent: nil) }
 }
@@ -31,6 +39,7 @@ public class RootModuleComponentImpl: Component, RootComponent {
 public class RootModuleHolderContext: ModuleHolderContext {}
 
 public class RootModuleHolder: ModuleHolder, RootSupporting, Module, @unchecked Sendable {
+  
   public typealias ModuleComponent = RootModuleComponentImpl
   public typealias Context = RootModuleHolderContext
   public typealias Router = RootRouter
@@ -56,6 +65,16 @@ public class RootModuleHolder: ModuleHolder, RootSupporting, Module, @unchecked 
       BarBuilder.build(parentComponent: component, holder: self, context: context),
       SettingsBuilder.build(parentComponent: component, holder: self, context: context)
     ]
+  }
+  
+  @MainActor
+  public func onAppear() async {
+    // no op
+    let maintenanceModule = MaintenanceBuilder.build(parentComponent: component,
+                                                     holder: self,
+                                                     context: context)
+    
+    await maintenanceModule.runIsolated()
   }
   
   public func onActive() {

@@ -64,6 +64,7 @@
 		918636402DC536DF003890E6 /* StatWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StatWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		918636422DC536DF003890E6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		918636442DC536DF003890E6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		918636622DC538FB003890E6 /* StatWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StatWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -85,9 +86,12 @@
 		918636572DC536F2003890E6 /* Exceptions for "ProteinBar" folder in "StatWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				CoreProviders/UserDefaults/UserStorageProviding.swift,
 				Extensions/AlignView.swift,
 				"Extensions/View+Ext.swift",
 				ProteinBarCore/Modules/Bar/Models/Tracking.swift,
+				ProteinBarCore/ProteinBarProviders/Storage/Storage.swift,
+				ProteinBarCore/Providers/Widget/SharedModels.swift,
 				ProteinBarCore/Themes/Assets.swift,
 				ProteinBarCore/Themes/Theme.swift,
 				ProteinBarExtensionShared/ExtensionsEnvironment.swift,
@@ -170,6 +174,7 @@
 		914349462DB04D8E00B1BA76 = {
 			isa = PBXGroup;
 			children = (
+				918636622DC538FB003890E6 /* StatWidgetExtension.entitlements */,
 				91A6D3AC2DB338A400BFBF88 /* ProteinBar */,
 				914349602DB04D8F00B1BA76 /* ProteinBarTests */,
 				9143496A2DB04D8F00B1BA76 /* ProteinBarUITests */,
@@ -594,7 +599,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
@@ -640,7 +645,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
@@ -741,6 +746,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StatWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 24H8222GR4;
@@ -771,6 +777,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StatWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 24H8222GR4;

@@ -11,6 +11,6 @@ import SwiftUI
 @main
 struct StatWidgetBundle: WidgetBundle {
     var body: some Widget {
-        StatWidget()
+        BarStatusWidget()
     }
 }

@@ -19,6 +19,9 @@ struct RootView: View {
   var body: some View {
     router.routeToBarView()
     .asAnyView()
+    .task {
+      await module.onAppear()
+    }
     .fullscreen()
     .applyThemeBackground(gradient: false)
   }
@@ -33,3 +36,4 @@ struct RootView_Previews: PreviewProvider {
       .preview()
   }
 }
+

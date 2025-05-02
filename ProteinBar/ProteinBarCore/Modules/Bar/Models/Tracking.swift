@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public enum TrackingName: String, Codable, CaseIterable {
+public enum TrackingName: String, Codable, CaseIterable, Sendable {
   case water, protein, carbohydrates, fiber, fat
   
   static var maxMaxValue: Int {
@@ -86,7 +86,8 @@ public enum TrackingName: String, Codable, CaseIterable {
 
 }
 
-struct TrackingValues: Codable, Equatable {
+public struct TrackingValues: Codable, Equatable, Sendable {
+  
   var values: [TrackingValue] = []
   
   static func empty() -> Self {
@@ -100,8 +101,8 @@ struct TrackingValues: Codable, Equatable {
   }
 }
 
-struct TrackingValue: Codable, Identifiable, Equatable {
-  var id: String {
+public struct TrackingValue: Codable, Identifiable, Equatable, Sendable {
+  public var id: String {
     name.rawValue + "_\(value)"
   }
   

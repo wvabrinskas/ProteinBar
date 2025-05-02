@@ -6,3 +6,4 @@ Pods/Pods.xcodeproj/xcuserdata/*
 *.xcodeproj/project.xcworkspace/xcuserdata/
 .DS_Store
 build/
+**/.claude/settings.local.json
