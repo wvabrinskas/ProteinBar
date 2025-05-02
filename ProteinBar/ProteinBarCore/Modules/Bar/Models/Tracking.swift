@@ -15,7 +15,7 @@ public enum TrackingName: String, Codable, CaseIterable {
     return 9999
   }
   
-  func barColor(theme: Theme) -> Color {
+  func barColor(theme: any Theme) -> Color {
     switch self {
     case .water:
       return theme.waterColor

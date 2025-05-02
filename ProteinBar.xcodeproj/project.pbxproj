@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9186356C2DBEF639003890E6 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9186356B2DBEF639003890E6 /* ConfettiSwiftUI */; };
+		918636432DC536DF003890E6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918636422DC536DF003890E6 /* WidgetKit.framework */; };
+		918636452DC536DF003890E6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918636442DC536DF003890E6 /* SwiftUI.framework */; };
+		918636502DC536DF003890E6 /* StatWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 918636402DC536DF003890E6 /* StatWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		91A6D3272DB1C91900BFBF88 /* HuddleArch in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D3262DB1C91900BFBF88 /* HuddleArch */; };
 		91A6D3292DB1C91900BFBF88 /* HuddleMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D3282DB1C91900BFBF88 /* HuddleMacros */; };
 		91A6D32C2DB1C9E300BFBF88 /* HuddleArch in Frameworks */ = {isa = PBXBuildFile; productRef = 91A6D32B2DB1C9E300BFBF88 /* HuddleArch */; };
@@ -31,12 +34,36 @@
 			remoteGlobalIDString = 9143494E2DB04D8E00B1BA76;
 			remoteInfo = ProteinBar;
 		};
+		9186364E2DC536DF003890E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 914349472DB04D8E00B1BA76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9186363F2DC536DF003890E6;
+			remoteInfo = StatWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		918636512DC536DF003890E6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				918636502DC536DF003890E6 /* StatWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9143494F2DB04D8E00B1BA76 /* ProteinBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProteinBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9143495D2DB04D8F00B1BA76 /* ProteinBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProteinBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		914349672DB04D8F00B1BA76 /* ProteinBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProteinBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		918636402DC536DF003890E6 /* StatWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StatWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		918636422DC536DF003890E6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		918636442DC536DF003890E6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -44,8 +71,28 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				ProteinBarExtensionShared/ExtensionsEnvironment.swift,
 			);
 			target = 9143494E2DB04D8E00B1BA76 /* ProteinBar */;
+		};
+		918636552DC536DF003890E6 /* Exceptions for "StatWidget" folder in "StatWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9186363F2DC536DF003890E6 /* StatWidgetExtension */;
+		};
+		918636572DC536F2003890E6 /* Exceptions for "ProteinBar" folder in "StatWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Extensions/AlignView.swift,
+				"Extensions/View+Ext.swift",
+				ProteinBarCore/Modules/Bar/Models/Tracking.swift,
+				ProteinBarCore/Themes/Assets.swift,
+				ProteinBarCore/Themes/Theme.swift,
+				ProteinBarExtensionShared/ExtensionsEnvironment.swift,
+			);
+			target = 9186363F2DC536DF003890E6 /* StatWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -60,10 +107,19 @@
 			path = ProteinBarUITests;
 			sourceTree = "<group>";
 		};
+		918636462DC536DF003890E6 /* StatWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				918636552DC536DF003890E6 /* Exceptions for "StatWidget" folder in "StatWidgetExtension" target */,
+			);
+			path = StatWidget;
+			sourceTree = "<group>";
+		};
 		91A6D3AC2DB338A400BFBF88 /* ProteinBar */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				911EE6C22DB3EA2E00B09FA1 /* Exceptions for "ProteinBar" folder in "ProteinBar" target */,
+				918636572DC536F2003890E6 /* Exceptions for "ProteinBar" folder in "StatWidgetExtension" target */,
 			);
 			path = ProteinBar;
 			sourceTree = "<group>";
@@ -99,6 +155,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9186363D2DC536DF003890E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				918636452DC536DF003890E6 /* SwiftUI.framework in Frameworks */,
+				918636432DC536DF003890E6 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -108,6 +173,8 @@
 				91A6D3AC2DB338A400BFBF88 /* ProteinBar */,
 				914349602DB04D8F00B1BA76 /* ProteinBarTests */,
 				9143496A2DB04D8F00B1BA76 /* ProteinBarUITests */,
+				918636462DC536DF003890E6 /* StatWidget */,
+				918636412DC536DF003890E6 /* Frameworks */,
 				914349502DB04D8E00B1BA76 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,8 +185,18 @@
 				9143494F2DB04D8E00B1BA76 /* ProteinBar.app */,
 				9143495D2DB04D8F00B1BA76 /* ProteinBarTests.xctest */,
 				914349672DB04D8F00B1BA76 /* ProteinBarUITests.xctest */,
+				918636402DC536DF003890E6 /* StatWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		918636412DC536DF003890E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				918636422DC536DF003890E6 /* WidgetKit.framework */,
+				918636442DC536DF003890E6 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,10 +209,12 @@
 				9143494B2DB04D8E00B1BA76 /* Sources */,
 				9143494C2DB04D8E00B1BA76 /* Frameworks */,
 				9143494D2DB04D8E00B1BA76 /* Resources */,
+				918636512DC536DF003890E6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9186364F2DC536DF003890E6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				91A6D3AC2DB338A400BFBF88 /* ProteinBar */,
@@ -200,6 +279,28 @@
 			productReference = 914349672DB04D8F00B1BA76 /* ProteinBarUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		9186363F2DC536DF003890E6 /* StatWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 918636542DC536DF003890E6 /* Build configuration list for PBXNativeTarget "StatWidgetExtension" */;
+			buildPhases = (
+				9186363C2DC536DF003890E6 /* Sources */,
+				9186363D2DC536DF003890E6 /* Frameworks */,
+				9186363E2DC536DF003890E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				918636462DC536DF003890E6 /* StatWidget */,
+			);
+			name = StatWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = StatWidgetExtension;
+			productReference = 918636402DC536DF003890E6 /* StatWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -220,6 +321,9 @@
 					914349662DB04D8F00B1BA76 = {
 						CreatedOnToolsVersion = 16.3;
 						TestTargetID = 9143494E2DB04D8E00B1BA76;
+					};
+					9186363F2DC536DF003890E6 = {
+						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
@@ -246,6 +350,7 @@
 				9143494E2DB04D8E00B1BA76 /* ProteinBar */,
 				9143495C2DB04D8F00B1BA76 /* ProteinBarTests */,
 				914349662DB04D8F00B1BA76 /* ProteinBarUITests */,
+				9186363F2DC536DF003890E6 /* StatWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -266,6 +371,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		914349652DB04D8F00B1BA76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9186363E2DC536DF003890E6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -296,6 +408,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9186363C2DC536DF003890E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -308,6 +427,11 @@
 			isa = PBXTargetDependency;
 			target = 9143494E2DB04D8E00B1BA76 /* ProteinBar */;
 			targetProxy = 914349682DB04D8F00B1BA76 /* PBXContainerItemProxy */;
+		};
+		9186364F2DC536DF003890E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9186363F2DC536DF003890E6 /* StatWidgetExtension */;
+			targetProxy = 9186364E2DC536DF003890E6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -462,7 +586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.ProteinBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -508,7 +632,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.ProteinBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -612,6 +736,67 @@
 			};
 			name = Release;
 		};
+		918636522DC536DF003890E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StatWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StatWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.ProteinBar.StatWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited) TARGET_IS_EXTENSION";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		918636532DC536DF003890E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StatWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StatWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.ProteinBar.StatWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = TARGET_IS_EXTENSION;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -647,6 +832,15 @@
 			buildConfigurations = (
 				914349782DB04D8F00B1BA76 /* Debug */,
 				914349792DB04D8F00B1BA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		918636542DC536DF003890E6 /* Build configuration list for PBXNativeTarget "StatWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				918636522DC536DF003890E6 /* Debug */,
+				918636532DC536DF003890E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

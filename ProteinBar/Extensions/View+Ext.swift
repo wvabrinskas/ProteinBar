@@ -107,12 +107,15 @@ public struct FadeIn: ViewModifier {
   }
 }
 
+
 public struct TapToHideKeyboard: ViewModifier {
   public func body(content: Content) -> some View {
     content
       .simultaneousGesture(TapGesture(count: 1)
         .onEnded {
+          #if !TARGET_IS_EXTENSION
           UIApplication.shared.endEditing()
+          #endif
         })
   }
 }
