@@ -30,6 +30,8 @@ struct BarStatusWidgetView: View {
         Spacer()
         HStack(alignment: .bottom, spacing: 0) {
           ForEach(0..<entry.trackingValues.values.count, id: \.self) { index in
+              let value = entry.trackingValues.values[index]
+
               UnevenRoundedRectangle(cornerRadii: .init(topLeading: cornerRadius,
                                                         bottomLeading: 0,
                                                         bottomTrailing: 0,
@@ -37,7 +39,6 @@ struct BarStatusWidgetView: View {
               .fill(theme.backgroundColorBottom.opacity(0.1))
               .frame(height: barHeight)
               .overlay {
-                let value = entry.trackingValues.values[index]
                 
                 UnevenRoundedRectangle(cornerRadii: .init(topLeading: cornerRadius,
                                                           bottomLeading: 0,
@@ -48,6 +49,7 @@ struct BarStatusWidgetView: View {
                 .align(.bottom)
               }
               .depth(foregroundColor: .clear, cornerRadius: cornerRadius)
+              .isHidden(value.visible == false, remove: true)
           }
         }
       }

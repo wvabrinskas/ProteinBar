@@ -60,7 +60,6 @@ public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleCom
   
   public func save() {
     saveValues(viewModel.values)
-    startUpdateWidgetTask()
   }
   
   public func reset() {
@@ -139,6 +138,7 @@ public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleCom
   
   private func saveValues(_ newValues: [TrackingValue]) {
     sharedStorageProvider.setDataObject(key: .trackingValues, data: TrackingValues(values: newValues))
+    startUpdateWidgetTask()
   }
   
   private func updateViewModel(with newValues: [TrackingValue]) {
