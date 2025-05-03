@@ -28,6 +28,7 @@ public struct ValueBarView: View {
   @Binding public var value: Int
   @State private var trigger: Int = 0
   public var viewModel: ValueBarViewModel
+  public let onEnded: ((String) -> Void)?
 
   public var body: some View {
     VStack(spacing: 8) {
@@ -69,7 +70,9 @@ public struct ValueBarView: View {
                   trackColor: theme.backgroundColorBottom,
                   progressColor: viewModel.barColor,
                   thumbColor: viewModel.barColor,
-                  height: 40)
+                  height: 40) {
+        onEnded?(viewModel.id)
+      }
       .padding([.leading, .trailing], 8)
       .padding(.bottom, 16)
     }
@@ -137,25 +140,25 @@ struct ValueBarView_Previews: PreviewProvider {
                     .capitalized,
                                     range: 0...100,
                                     barColor: .app(.proteinColor),
-                                    id: TrackingName.protein.rawValue))
+                                    id: TrackingName.protein.rawValue)) { _ in }
       ValueBarView(value: .constant(50),
                    viewModel: .init(title: TrackingName.water.rawValue
                     .capitalized,
                                     range: 0...100,
                                     barColor: .app(.waterColor),
-                                    id: TrackingName.water.rawValue))
+                                    id: TrackingName.water.rawValue)) { _ in }
       ValueBarView(value: .constant(50),
                    viewModel: .init(title: TrackingName.fiber.rawValue
                     .capitalized,
                                     range: 0...100,
                                     barColor: .app(.fiberColor),
-                                    id: TrackingName.fiber.rawValue))
+                                    id: TrackingName.fiber.rawValue)) { _ in }
       ValueBarView(value: .constant(50),
                    viewModel: .init(title: TrackingName.carbohydrates.rawValue
                     .capitalized,
                                     range: 0...100,
                                     barColor: .app(.carbColor),
-                                    id: TrackingName.carbohydrates.rawValue))
+                                    id: TrackingName.carbohydrates.rawValue)) { _ in }
     }
     .padding()
       .preview()

@@ -48,7 +48,9 @@ public final class UpdateWidgetMaintenanceStep: FlowStep<MaintenanceFlowContext,
     let updateWidgetStepContext = UpdateWidgetFlowContext()
     
     let updateFlow = UpdateWidgetFlow(context: updateWidgetStepContext,
-                                      component: updateWidgetFlowComponent)
+                                      component: updateWidgetFlowComponent) {
+      .init()
+    }
     
     
     let result = await updateFlow.runResult()

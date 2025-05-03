@@ -68,7 +68,7 @@ public final class MaintenanceModule: Flow<MaintenanceFlowContext, MaintenanceMo
     super.init(context: context, component: component)
     
     self.steps = [
-
+      UpdateWidgetMaintenanceStep(flow: self, context: context, component: component.updateWidgetMaintenanceStepComponent)
     ]
   }
 }

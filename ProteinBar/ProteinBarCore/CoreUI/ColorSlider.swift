@@ -17,6 +17,7 @@ struct ColorSlider: View {
   let thumbColor: Color
   let height: CGFloat
   let showsButtons: Bool
+  let onEnded: (() -> Void)?
   
   init(value: Binding<Int>,
        range: ClosedRange<Int>,
@@ -24,7 +25,8 @@ struct ColorSlider: View {
        progressColor: Color,
        thumbColor: Color,
        height: CGFloat = 60,
-       showsButtons: Bool = false) {
+       showsButtons: Bool = false,
+       onEnded: (() -> Void)? = nil) {
     self._value = .init(get: {
       Double(value.wrappedValue)
     }, set: { newValue in
@@ -36,6 +38,7 @@ struct ColorSlider: View {
     self.thumbColor = thumbColor
     self.height = height
     self.showsButtons = showsButtons
+    self.onEnded = onEnded
   }
   
   private let thumbWidth: CGFloat = 22
@@ -85,6 +88,9 @@ struct ColorSlider: View {
                     self.value = range.lowerBound + Double(percent) * (range.upperBound - range.lowerBound)
                   }
                 }
+                .onEnded({ _ in
+                  onEnded?()
+                })
             )
         }
         

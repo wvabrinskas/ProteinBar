@@ -1,5 +1,5 @@
 {
-  "originHash" : "effc4287506361809a464c4b2489cdb842b0358456928560bdd2ae54656920b8",
+  "originHash" : "d256e72863894d018c1d60ed3ccfb216738a0fc225077a8429928301af794cc7",
   "pins" : [
     {
       "identity" : "confettiswiftui",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/wvabrinskas/HuddleArch",
       "state" : {
-        "revision" : "9bde6974c14a609d45870c33de905cfa54121eef",
-        "version" : "1.0.23"
+        "revision" : "4c523ff24f441e5bfb2b7bb6197fff511d6aaedc",
+        "version" : "1.0.24"
       }
     },
     {

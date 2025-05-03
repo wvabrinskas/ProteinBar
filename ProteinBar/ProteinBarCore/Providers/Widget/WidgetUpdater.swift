@@ -11,7 +11,7 @@ import HuddleArch
 public struct WidgetUpdaterPayload: FlowResult {
   let barStatusPayload: WidgetBarStatusPayload?
   
-  init(barStatusPayload: WidgetBarStatusPayload?) {
+  init(barStatusPayload: WidgetBarStatusPayload? = nil) {
     self.barStatusPayload = barStatusPayload
   }
   
@@ -33,7 +33,8 @@ public final class WidgetUpdater: WidgetUpdating {
   
   public func update(with payload: WidgetUpdaterPayload) {
     if let barStatusPayload = payload.barStatusPayload {
-      extensionStorageProvider.setDataObject(key: .trackingValues, data: barStatusPayload)
+      extensionStorageProvider.setDataObject(key: .trackingValues,
+                                             data: barStatusPayload.trackingValues)
     }
     
     WidgetCenter.shared.reloadAllTimelines()

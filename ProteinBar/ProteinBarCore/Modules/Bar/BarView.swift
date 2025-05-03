@@ -63,15 +63,14 @@ public struct BarView: View {
                                           barColor: value.name.barColor(theme: theme),
                                           leadingIcon: value.name.icon,
                                           id: value.name.rawValue,
-                                          hidden: value.visible == false))
+                                          hidden: value.visible == false)) { id in
+              module.save()
+            }
           }
         }
         .padding()
       }
     }
-    .onChange(of: viewModel.values, { oldValue, newValue in
-      module.save()
-    })
     .popup(show: $viewModel.reset, viewModel: .init(title: "Reset", subtitle: "Reset values to zero?",
                                                     body: nil,
                                                     detailTitle: nil,

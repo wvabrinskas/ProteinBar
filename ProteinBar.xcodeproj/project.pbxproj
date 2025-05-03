@@ -89,6 +89,7 @@
 				CoreProviders/UserDefaults/UserStorageProviding.swift,
 				Extensions/AlignView.swift,
 				"Extensions/View+Ext.swift",
+				ProteinBarCore/CoreUI/ProteinBarLabel.swift,
 				ProteinBarCore/Modules/Bar/Models/Tracking.swift,
 				ProteinBarCore/ProteinBarProviders/Storage/Storage.swift,
 				ProteinBarCore/Providers/Widget/SharedModels.swift,
@@ -868,7 +869,7 @@
 			repositoryURL = "https://github.com/wvabrinskas/HuddleArch";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.23;
+				minimumVersion = 1.0.24;
 			};
 		};
 		91A6D3DB2DB3553200BFBF88 /* XCRemoteSwiftPackageReference "NumSwift" */ = {

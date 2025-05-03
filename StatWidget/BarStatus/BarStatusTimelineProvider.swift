@@ -13,7 +13,7 @@ public struct BarStatusTimelineEntry: TimelineEntry, Sendable {
   public let trackingValues: TrackingValues
   
   public static let mock = BarStatusTimelineEntry(date: Date(),
-                                                  trackingValues: .empty())
+                                                  trackingValues: .mock())
 }
 
 public struct BarStatusTimelineProvider: TimelineProvider {

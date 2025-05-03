@@ -13,11 +13,17 @@ import HuddleMacros
 
 public protocol BarModuleComponent: Component {
   var sharedStorageProvider: UserStorageProvider<SharedStorageKeys> { get }
+  var widgetUpdater: WidgetUpdating { get }
 }
 
 @ComponentImpl
 public class BarModuleComponentImpl: Component, BarModuleComponent {
   public var sharedStorageProvider: UserStorageProvider<SharedStorageKeys>
+  public let widgetUpdater: WidgetUpdating
+  
+  public var updateWidgetFlowComponent: UpdateWidgetFlowComponentImpl {
+    UpdateWidgetFlowComponentImpl(parent: self)
+  }
 }
 
 public protocol BarSupporting {
@@ -32,13 +38,20 @@ public protocol BarSupporting {
   func setMaxValue(maxValue: Int, name: TrackingName)
 }
 
-public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleComponentImpl,  BarRouter>, BarSupporting {
+public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleComponentImpl,  BarRouter>, BarSupporting, @unchecked Sendable {
   private let sharedStorageProvider: UserStorageProvider<SharedStorageKeys>
+  private let updateWidgetFlowComponent: UpdateWidgetFlowComponentImpl
+  private let widgetUpdater: WidgetUpdating
+  
+  private var updateWidgetTask: Task<Void, Never>?
   
   public var viewModel: BarViewModel = BarViewModel()
+  
 
   public required init(holder: ModuleHolding?, context: Context, component: BarModuleComponentImpl) {
     self.sharedStorageProvider = component.sharedStorageProvider
+    self.updateWidgetFlowComponent = component.updateWidgetFlowComponent
+    self.widgetUpdater = component.widgetUpdater
     
     super.init(holder: holder, context: context, component: component)
 
@@ -47,6 +60,7 @@ public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleCom
   
   public func save() {
     saveValues(viewModel.values)
+    startUpdateWidgetTask()
   }
   
   public func reset() {
@@ -55,6 +69,8 @@ public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleCom
     
     viewModel.values = newValues
     sharedStorageProvider.setDataObject(key: .trackingValues, data: TrackingValues(values: newValues))
+    
+    startUpdateWidgetTask()
   }
   
   @MainActor
@@ -92,6 +108,34 @@ public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleCom
   }
   
   // MARK: Private
+  private func startUpdateWidgetTask() {
+    updateWidgetTask?.cancel()
+    
+    updateWidgetTask = Task {
+      guard Task.isCancelled == false else { return }
+      
+      await updateWidget()
+    }
+  }
+  
+  private func updateWidget() async {
+    
+    let updateWidgetStepContext = UpdateWidgetFlowContext()
+    
+    let updateFlow = UpdateWidgetFlow(context: updateWidgetStepContext,
+                                      component: updateWidgetFlowComponent) {
+      .init()
+    }
+    
+    
+    let result = await updateFlow.runResult()
+    
+    if let result {
+      widgetUpdater.update(with: result)
+    } else {
+      print("error updating widget")
+    }
+  }
   
   private func saveValues(_ newValues: [TrackingValue]) {
     sharedStorageProvider.setDataObject(key: .trackingValues, data: TrackingValues(values: newValues))

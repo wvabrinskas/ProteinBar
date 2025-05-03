@@ -99,6 +99,16 @@ public struct TrackingValues: Codable, Equatable, Sendable {
     
     return .init(values: viewModels)
   }
+  
+  static func mock() -> Self {
+    let availableTrackingNames: [TrackingName] = TrackingName.allCases
+    
+    let viewModels = availableTrackingNames.map {
+      TrackingValue(name: $0, value: .random(in: 10...$0.defaultMaxValue), maxValue: $0.defaultMaxValue)
+    }
+    
+    return .init(values: viewModels)
+  }
 }
 
 public struct TrackingValue: Codable, Identifiable, Equatable, Sendable {

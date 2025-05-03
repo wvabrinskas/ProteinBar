@@ -29,6 +29,7 @@ public protocol RootComponent: Component {
 public class RootModuleComponentImpl: Component, RootComponent {
   public var sharedStorageProvider: UserStorageProvider<SharedStorageKeys> = .init(defaults: .standard)
   public var extensionStorageProvider: UserStorageProvider<ExtensionStorageKeys> = .init(defaults: UserDefaults(suiteName: SharedAppGroups.widget.rawValue ) ?? .standard)
+  
   public var widgetUpdater: WidgetUpdating {
     WidgetUpdater(extensionStorageProvider: extensionStorageProvider)
   }

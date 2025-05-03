@@ -77,6 +77,7 @@ public final class UserStorageProvider<Keys: StorageKeying>: UserStorageProvidin
       let encode = try JSONEncoder().encode(data)
       setObject(key: key, object: encode)
     } catch {
+      print(error)
     }
   }
 }
