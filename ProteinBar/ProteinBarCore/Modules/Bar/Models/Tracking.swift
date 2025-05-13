@@ -9,7 +9,12 @@ import Foundation
 import SwiftUI
 
 public enum TrackingName: String, Codable, CaseIterable, Sendable {
-  case water, protein, carbohydrates, fiber, fat
+  case calories,
+       water,
+       protein,
+       carbohydrates,
+       fiber,
+       fat
   
   static var maxMaxValue: Int {
     return 9999
@@ -17,6 +22,8 @@ public enum TrackingName: String, Codable, CaseIterable, Sendable {
   
   func barColor(theme: any Theme) -> Color {
     switch self {
+    case .calories:
+      return theme.caloriesColor
     case .water:
       return theme.waterColor
     case .protein:
@@ -41,6 +48,8 @@ public enum TrackingName: String, Codable, CaseIterable, Sendable {
   
   var icon: Image {
     switch self {
+    case .calories:
+      return Image(systemName: "flame.fill")
     case .water:
       return Image(systemName: "drop.fill")
     case .protein:
@@ -56,6 +65,8 @@ public enum TrackingName: String, Codable, CaseIterable, Sendable {
   
   var defaultMaxValue: Int {
     switch self {
+    case .calories:
+      return 2000
     case .water:
       return 1000
     case .protein:
@@ -71,6 +82,8 @@ public enum TrackingName: String, Codable, CaseIterable, Sendable {
   
   var unit: String {
     switch self {
+    case .calories:
+      return "kcal"
     case .water:
       return "ml"
     case .protein:

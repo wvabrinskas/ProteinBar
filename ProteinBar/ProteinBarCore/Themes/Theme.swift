@@ -25,6 +25,7 @@ public enum Colors {
   case errorColor
   case successColor
   case buttonPrimary
+  case caloriesColor
   
   
   var name: String {
@@ -59,6 +60,8 @@ public enum Colors {
       return "SuccessColor"
     case .buttonPrimary:
       return "ButtonPrimary"
+    case .caloriesColor:
+      return "CaloriesColor"
     }
   }
 }
@@ -78,6 +81,7 @@ public protocol Theme {
   var carbColor: Color { get }
   var fiberColor: Color { get }
   var waterColor: Color { get }
+  var caloriesColor: Color { get }
   var errorColor: Color { get }
   var successColor: Color { get }
   var buttonPrimary: Color { get }
@@ -109,6 +113,7 @@ struct LaunchTheme: Theme, Sendable {
   var errorColor: Color { .app(.errorColor) }
   var successColor: Color { .app(.successColor) }
   var buttonPrimary: Color { .app(.buttonPrimary) }
+  var caloriesColor: Color { .app(.caloriesColor) }
   
   var springAnimation: Animation =
     .spring(response: 0.5,

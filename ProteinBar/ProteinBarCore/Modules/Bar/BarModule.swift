@@ -147,9 +147,39 @@ public final class BarModule: ModuleObject<RootModuleHolderContext, BarModuleCom
   
   @MainActor
   private func setupViewModel() {
-    guard let currentTrackingValues: TrackingValues = sharedStorageProvider.getDataObject(key: .trackingValues) else {
+    guard var currentTrackingValues: TrackingValues = sharedStorageProvider.getDataObject(key: .trackingValues) else {
       viewModel = .init(values: TrackingValues.empty().values)
       return
+    }
+    
+    let allCases = TrackingName.allCases
+    
+    var hadNewValues: Bool = false
+    
+    for i in 0..<allCases.count {
+      let name = allCases[i]
+      
+      guard currentTrackingValues.values.contains(where: { $0.name == name }) == false else {
+        continue
+      }
+      
+      hadNewValues = true
+      
+      let newValue: TrackingValue = .init(name: name,
+                                          value: 0,
+                                          maxValue: name.defaultMaxValue,
+                                          visible: true)
+      
+      if i < currentTrackingValues.values.count {
+        currentTrackingValues.values.insert(newValue, at: i)
+      } else {
+        currentTrackingValues.values.append(newValue)
+      }
+    }
+    
+    if hadNewValues {
+      sharedStorageProvider.setDataObject(key: .trackingValues,
+                                          data: currentTrackingValues)
     }
     
     updateViewModel(with: currentTrackingValues.values)
